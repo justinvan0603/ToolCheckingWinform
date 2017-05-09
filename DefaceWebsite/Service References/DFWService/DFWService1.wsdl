@@ -1,0 +1,970 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DFWService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://27.0.12.24:7217/Services/DFWService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://27.0.12.24:7217/Services/DFWService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://27.0.12.24:7217/Services/DFWService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" />
+      <xsd:import schemaLocation="http://27.0.12.24:7217/Services/DFWService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IUser_Users_Ins_InputMessage">
+    <wsdl:part name="parameters" element="tns:Users_Ins" />
+  </wsdl:message>
+  <wsdl:message name="IUser_Users_Ins_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Users_InsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUser_Users_Ins_A_InputMessage">
+    <wsdl:part name="parameters" element="tns:Users_Ins_A" />
+  </wsdl:message>
+  <wsdl:message name="IUser_Users_Ins_A_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Users_Ins_AResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUser_Users_Upd_InputMessage">
+    <wsdl:part name="parameters" element="tns:Users_Upd" />
+  </wsdl:message>
+  <wsdl:message name="IUser_Users_Upd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Users_UpdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUser_Users_Upd_A_InputMessage">
+    <wsdl:part name="parameters" element="tns:Users_Upd_A" />
+  </wsdl:message>
+  <wsdl:message name="IUser_Users_Upd_A_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Users_Upd_AResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUser_Users_Del_InputMessage">
+    <wsdl:part name="parameters" element="tns:Users_Del" />
+  </wsdl:message>
+  <wsdl:message name="IUser_Users_Del_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Users_DelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUser_Users_CheckLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:Users_CheckLogin" />
+  </wsdl:message>
+  <wsdl:message name="IUser_Users_CheckLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Users_CheckLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUser_Users_ById_InputMessage">
+    <wsdl:part name="parameters" element="tns:Users_ById" />
+  </wsdl:message>
+  <wsdl:message name="IUser_Users_ById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Users_ByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUser_Users_Search_InputMessage">
+    <wsdl:part name="parameters" element="tns:Users_Search" />
+  </wsdl:message>
+  <wsdl:message name="IUser_Users_Search_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Users_SearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUser_Userdomain_Search_InputMessage">
+    <wsdl:part name="parameters" element="tns:Userdomain_Search" />
+  </wsdl:message>
+  <wsdl:message name="IUser_Userdomain_Search_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Userdomain_SearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUser_Users_ByParent_InputMessage">
+    <wsdl:part name="parameters" element="tns:Users_ByParent" />
+  </wsdl:message>
+  <wsdl:message name="IUser_Users_ByParent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Users_ByParentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessages_Messages_Search_InputMessage">
+    <wsdl:part name="parameters" element="tns:Messages_Search" />
+  </wsdl:message>
+  <wsdl:message name="IMessages_Messages_Search_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Messages_SearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessages_Messages_Read_InputMessage">
+    <wsdl:part name="parameters" element="tns:Messages_Read" />
+  </wsdl:message>
+  <wsdl:message name="IMessages_Messages_Read_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Messages_ReadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessages_Messages_Ins_InputMessage">
+    <wsdl:part name="parameters" element="tns:Messages_Ins" />
+  </wsdl:message>
+  <wsdl:message name="IMessages_Messages_Ins_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Messages_InsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessages_Messages_NotifyIns_InputMessage">
+    <wsdl:part name="parameters" element="tns:Messages_NotifyIns" />
+  </wsdl:message>
+  <wsdl:message name="IMessages_Messages_NotifyIns_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Messages_NotifyInsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessages_Messages_ById_InputMessage">
+    <wsdl:part name="parameters" element="tns:Messages_ById" />
+  </wsdl:message>
+  <wsdl:message name="IMessages_Messages_ById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Messages_ByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMessages_Messages_UpdFBID_InputMessage">
+    <wsdl:part name="parameters" element="tns:Messages_UpdFBID" />
+  </wsdl:message>
+  <wsdl:message name="IMessages_Messages_UpdFBID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Messages_UpdFBIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IListDomain_Listdomain_Search_InputMessage">
+    <wsdl:part name="parameters" element="tns:Listdomain_Search" />
+  </wsdl:message>
+  <wsdl:message name="IListDomain_Listdomain_Search_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Listdomain_SearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IListDomain_Listdomain_ById_InputMessage">
+    <wsdl:part name="parameters" element="tns:Listdomain_ById" />
+  </wsdl:message>
+  <wsdl:message name="IListDomain_Listdomain_ById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Listdomain_ByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IListDomain_Listdomain_Ins_InputMessage">
+    <wsdl:part name="parameters" element="tns:Listdomain_Ins" />
+  </wsdl:message>
+  <wsdl:message name="IListDomain_Listdomain_Ins_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Listdomain_InsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IListDomain_Listdomain_Upd_InputMessage">
+    <wsdl:part name="parameters" element="tns:Listdomain_Upd" />
+  </wsdl:message>
+  <wsdl:message name="IListDomain_Listdomain_Upd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Listdomain_UpdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IListDomain_Listdomain_Del_InputMessage">
+    <wsdl:part name="parameters" element="tns:Listdomain_Del" />
+  </wsdl:message>
+  <wsdl:message name="IListDomain_Listdomain_Del_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Listdomain_DelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConfigs_Configtype_ByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:Configtype_ByUser" />
+  </wsdl:message>
+  <wsdl:message name="IConfigs_Configtype_ByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Configtype_ByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConfigs_Userconfig_Upd_InputMessage">
+    <wsdl:part name="parameters" element="tns:Userconfig_Upd" />
+  </wsdl:message>
+  <wsdl:message name="IConfigs_Userconfig_Upd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Userconfig_UpdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConfigs_Userconfig_Upd_A_InputMessage">
+    <wsdl:part name="parameters" element="tns:Userconfig_Upd_A" />
+  </wsdl:message>
+  <wsdl:message name="IConfigs_Userconfig_Upd_A_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Userconfig_Upd_AResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICheckDomain_DomainChange_Ins_InputMessage">
+    <wsdl:part name="parameters" element="tns:DomainChange_Ins" />
+  </wsdl:message>
+  <wsdl:message name="ICheckDomain_DomainChange_Ins_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DomainChange_InsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICheckDomain_DomainChange_Search_InputMessage">
+    <wsdl:part name="parameters" element="tns:DomainChange_Search" />
+  </wsdl:message>
+  <wsdl:message name="ICheckDomain_DomainChange_Search_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DomainChange_SearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICheckDomain_DomainProfile_Ins_InputMessage">
+    <wsdl:part name="parameters" element="tns:DomainProfile_Ins" />
+  </wsdl:message>
+  <wsdl:message name="ICheckDomain_DomainProfile_Ins_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DomainProfile_InsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICheckDomain_DomainProfile_Search_InputMessage">
+    <wsdl:part name="parameters" element="tns:DomainProfile_Search" />
+  </wsdl:message>
+  <wsdl:message name="ICheckDomain_DomainProfile_Search_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DomainProfile_SearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISchedule_Schedules_Cal_InputMessage">
+    <wsdl:part name="parameters" element="tns:Schedules_Cal" />
+  </wsdl:message>
+  <wsdl:message name="ISchedule_Schedules_Cal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Schedules_CalResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISchedule_Schedules_GetByDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:Schedules_GetByDate" />
+  </wsdl:message>
+  <wsdl:message name="ISchedule_Schedules_GetByDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Schedules_GetByDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISchedule_Schedules_GetLast_InputMessage">
+    <wsdl:part name="parameters" element="tns:Schedules_GetLast" />
+  </wsdl:message>
+  <wsdl:message name="ISchedule_Schedules_GetLast_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Schedules_GetLastResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISchedule_Schedules_DT_InputMessage">
+    <wsdl:part name="parameters" element="tns:Schedules_DT" />
+  </wsdl:message>
+  <wsdl:message name="ISchedule_Schedules_DT_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Schedules_DTResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISchedule_Schedules_Search_InputMessage">
+    <wsdl:part name="parameters" element="tns:Schedules_Search" />
+  </wsdl:message>
+  <wsdl:message name="ISchedule_Schedules_Search_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Schedules_SearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISchedule_ScheduleDt_UpdExecute_InputMessage">
+    <wsdl:part name="parameters" element="tns:ScheduleDt_UpdExecute" />
+  </wsdl:message>
+  <wsdl:message name="ISchedule_ScheduleDt_UpdExecute_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ScheduleDt_UpdExecuteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOptions_Options_Upd_InputMessage">
+    <wsdl:part name="parameters" element="tns:Options_Upd" />
+  </wsdl:message>
+  <wsdl:message name="IOptions_Options_Upd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Options_UpdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOptions_Options_Upd_A_InputMessage">
+    <wsdl:part name="parameters" element="tns:Options_Upd_A" />
+  </wsdl:message>
+  <wsdl:message name="IOptions_Options_Upd_A_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Options_Upd_AResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOptions_Option_Search_InputMessage">
+    <wsdl:part name="parameters" element="tns:Option_Search" />
+  </wsdl:message>
+  <wsdl:message name="IOptions_Option_Search_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Option_SearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOptions_Optionlinks_Search_InputMessage">
+    <wsdl:part name="parameters" element="tns:Optionlinks_Search" />
+  </wsdl:message>
+  <wsdl:message name="IOptions_Optionlinks_Search_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Optionlinks_SearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOptions_Optionsuser_Search_InputMessage">
+    <wsdl:part name="parameters" element="tns:Optionsuser_Search" />
+  </wsdl:message>
+  <wsdl:message name="IOptions_Optionsuser_Search_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Optionsuser_SearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFeatures_Features_Ins_InputMessage">
+    <wsdl:part name="parameters" element="tns:Features_Ins" />
+  </wsdl:message>
+  <wsdl:message name="IFeatures_Features_Ins_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Features_InsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFeatures_Features_Ins_A_InputMessage">
+    <wsdl:part name="parameters" element="tns:Features_Ins_A" />
+  </wsdl:message>
+  <wsdl:message name="IFeatures_Features_Ins_A_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Features_Ins_AResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFeatures_Features_Upd_InputMessage">
+    <wsdl:part name="parameters" element="tns:Features_Upd" />
+  </wsdl:message>
+  <wsdl:message name="IFeatures_Features_Upd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Features_UpdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFeatures_Features_Upd_A_InputMessage">
+    <wsdl:part name="parameters" element="tns:Features_Upd_A" />
+  </wsdl:message>
+  <wsdl:message name="IFeatures_Features_Upd_A_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Features_Upd_AResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFeatures_Features_Del_InputMessage">
+    <wsdl:part name="parameters" element="tns:Features_Del" />
+  </wsdl:message>
+  <wsdl:message name="IFeatures_Features_Del_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Features_DelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFeatures_Features_ById_InputMessage">
+    <wsdl:part name="parameters" element="tns:Features_ById" />
+  </wsdl:message>
+  <wsdl:message name="IFeatures_Features_ById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Features_ByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFeatures_Features_Search_InputMessage">
+    <wsdl:part name="parameters" element="tns:Features_Search" />
+  </wsdl:message>
+  <wsdl:message name="IFeatures_Features_Search_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Features_SearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFeatures_Features_Search_A_InputMessage">
+    <wsdl:part name="parameters" element="tns:Features_Search_A" />
+  </wsdl:message>
+  <wsdl:message name="IFeatures_Features_Search_A_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Features_Search_AResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IUser">
+    <wsdl:operation name="Users_Ins">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/Users_Ins" message="tns:IUser_Users_Ins_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/Users_InsResponse" message="tns:IUser_Users_Ins_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Users_Ins_A">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/Users_Ins_A" message="tns:IUser_Users_Ins_A_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/Users_Ins_AResponse" message="tns:IUser_Users_Ins_A_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Users_Upd">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/Users_Upd" message="tns:IUser_Users_Upd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/Users_UpdResponse" message="tns:IUser_Users_Upd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Users_Upd_A">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/Users_Upd_A" message="tns:IUser_Users_Upd_A_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/Users_Upd_AResponse" message="tns:IUser_Users_Upd_A_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Users_Del">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/Users_Del" message="tns:IUser_Users_Del_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/Users_DelResponse" message="tns:IUser_Users_Del_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Users_CheckLogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/Users_CheckLogin" message="tns:IUser_Users_CheckLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/Users_CheckLoginResponse" message="tns:IUser_Users_CheckLogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Users_ById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/Users_ById" message="tns:IUser_Users_ById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/Users_ByIdResponse" message="tns:IUser_Users_ById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Users_Search">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/Users_Search" message="tns:IUser_Users_Search_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/Users_SearchResponse" message="tns:IUser_Users_Search_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Userdomain_Search">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/Userdomain_Search" message="tns:IUser_Userdomain_Search_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/Userdomain_SearchResponse" message="tns:IUser_Userdomain_Search_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Users_ByParent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUser/Users_ByParent" message="tns:IUser_Users_ByParent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUser/Users_ByParentResponse" message="tns:IUser_Users_ByParent_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IMessages">
+    <wsdl:operation name="Messages_Search">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessages/Messages_Search" message="tns:IMessages_Messages_Search_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessages/Messages_SearchResponse" message="tns:IMessages_Messages_Search_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Messages_Read">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessages/Messages_Read" message="tns:IMessages_Messages_Read_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessages/Messages_ReadResponse" message="tns:IMessages_Messages_Read_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Messages_Ins">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessages/Messages_Ins" message="tns:IMessages_Messages_Ins_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessages/Messages_InsResponse" message="tns:IMessages_Messages_Ins_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Messages_NotifyIns">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessages/Messages_NotifyIns" message="tns:IMessages_Messages_NotifyIns_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessages/Messages_NotifyInsResponse" message="tns:IMessages_Messages_NotifyIns_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Messages_ById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessages/Messages_ById" message="tns:IMessages_Messages_ById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessages/Messages_ByIdResponse" message="tns:IMessages_Messages_ById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Messages_UpdFBID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMessages/Messages_UpdFBID" message="tns:IMessages_Messages_UpdFBID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMessages/Messages_UpdFBIDResponse" message="tns:IMessages_Messages_UpdFBID_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IListDomain">
+    <wsdl:operation name="Listdomain_Search">
+      <wsdl:input wsaw:Action="http://tempuri.org/IListDomain/Listdomain_Search" message="tns:IListDomain_Listdomain_Search_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IListDomain/Listdomain_SearchResponse" message="tns:IListDomain_Listdomain_Search_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Listdomain_ById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IListDomain/Listdomain_ById" message="tns:IListDomain_Listdomain_ById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IListDomain/Listdomain_ByIdResponse" message="tns:IListDomain_Listdomain_ById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Listdomain_Ins">
+      <wsdl:input wsaw:Action="http://tempuri.org/IListDomain/Listdomain_Ins" message="tns:IListDomain_Listdomain_Ins_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IListDomain/Listdomain_InsResponse" message="tns:IListDomain_Listdomain_Ins_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Listdomain_Upd">
+      <wsdl:input wsaw:Action="http://tempuri.org/IListDomain/Listdomain_Upd" message="tns:IListDomain_Listdomain_Upd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IListDomain/Listdomain_UpdResponse" message="tns:IListDomain_Listdomain_Upd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Listdomain_Del">
+      <wsdl:input wsaw:Action="http://tempuri.org/IListDomain/Listdomain_Del" message="tns:IListDomain_Listdomain_Del_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IListDomain/Listdomain_DelResponse" message="tns:IListDomain_Listdomain_Del_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IConfigs">
+    <wsdl:operation name="Configtype_ByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConfigs/Configtype_ByUser" message="tns:IConfigs_Configtype_ByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConfigs/Configtype_ByUserResponse" message="tns:IConfigs_Configtype_ByUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Userconfig_Upd">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConfigs/Userconfig_Upd" message="tns:IConfigs_Userconfig_Upd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConfigs/Userconfig_UpdResponse" message="tns:IConfigs_Userconfig_Upd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Userconfig_Upd_A">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConfigs/Userconfig_Upd_A" message="tns:IConfigs_Userconfig_Upd_A_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConfigs/Userconfig_Upd_AResponse" message="tns:IConfigs_Userconfig_Upd_A_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ICheckDomain">
+    <wsdl:operation name="DomainChange_Ins">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICheckDomain/DomainChange_Ins" message="tns:ICheckDomain_DomainChange_Ins_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICheckDomain/DomainChange_InsResponse" message="tns:ICheckDomain_DomainChange_Ins_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DomainChange_Search">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICheckDomain/DomainChange_Search" message="tns:ICheckDomain_DomainChange_Search_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICheckDomain/DomainChange_SearchResponse" message="tns:ICheckDomain_DomainChange_Search_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DomainProfile_Ins">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICheckDomain/DomainProfile_Ins" message="tns:ICheckDomain_DomainProfile_Ins_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICheckDomain/DomainProfile_InsResponse" message="tns:ICheckDomain_DomainProfile_Ins_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DomainProfile_Search">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICheckDomain/DomainProfile_Search" message="tns:ICheckDomain_DomainProfile_Search_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICheckDomain/DomainProfile_SearchResponse" message="tns:ICheckDomain_DomainProfile_Search_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ISchedule">
+    <wsdl:operation name="Schedules_Cal">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISchedule/Schedules_Cal" message="tns:ISchedule_Schedules_Cal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISchedule/Schedules_CalResponse" message="tns:ISchedule_Schedules_Cal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Schedules_GetByDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISchedule/Schedules_GetByDate" message="tns:ISchedule_Schedules_GetByDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISchedule/Schedules_GetByDateResponse" message="tns:ISchedule_Schedules_GetByDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Schedules_GetLast">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISchedule/Schedules_GetLast" message="tns:ISchedule_Schedules_GetLast_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISchedule/Schedules_GetLastResponse" message="tns:ISchedule_Schedules_GetLast_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Schedules_DT">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISchedule/Schedules_DT" message="tns:ISchedule_Schedules_DT_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISchedule/Schedules_DTResponse" message="tns:ISchedule_Schedules_DT_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Schedules_Search">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISchedule/Schedules_Search" message="tns:ISchedule_Schedules_Search_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISchedule/Schedules_SearchResponse" message="tns:ISchedule_Schedules_Search_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ScheduleDt_UpdExecute">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISchedule/ScheduleDt_UpdExecute" message="tns:ISchedule_ScheduleDt_UpdExecute_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISchedule/ScheduleDt_UpdExecuteResponse" message="tns:ISchedule_ScheduleDt_UpdExecute_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IOptions">
+    <wsdl:operation name="Options_Upd">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOptions/Options_Upd" message="tns:IOptions_Options_Upd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOptions/Options_UpdResponse" message="tns:IOptions_Options_Upd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Options_Upd_A">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOptions/Options_Upd_A" message="tns:IOptions_Options_Upd_A_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOptions/Options_Upd_AResponse" message="tns:IOptions_Options_Upd_A_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Option_Search">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOptions/Option_Search" message="tns:IOptions_Option_Search_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOptions/Option_SearchResponse" message="tns:IOptions_Option_Search_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Optionlinks_Search">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOptions/Optionlinks_Search" message="tns:IOptions_Optionlinks_Search_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOptions/Optionlinks_SearchResponse" message="tns:IOptions_Optionlinks_Search_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Optionsuser_Search">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOptions/Optionsuser_Search" message="tns:IOptions_Optionsuser_Search_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOptions/Optionsuser_SearchResponse" message="tns:IOptions_Optionsuser_Search_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IFeatures">
+    <wsdl:operation name="Features_Ins">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFeatures/Features_Ins" message="tns:IFeatures_Features_Ins_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFeatures/Features_InsResponse" message="tns:IFeatures_Features_Ins_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Features_Ins_A">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFeatures/Features_Ins_A" message="tns:IFeatures_Features_Ins_A_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFeatures/Features_Ins_AResponse" message="tns:IFeatures_Features_Ins_A_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Features_Upd">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFeatures/Features_Upd" message="tns:IFeatures_Features_Upd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFeatures/Features_UpdResponse" message="tns:IFeatures_Features_Upd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Features_Upd_A">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFeatures/Features_Upd_A" message="tns:IFeatures_Features_Upd_A_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFeatures/Features_Upd_AResponse" message="tns:IFeatures_Features_Upd_A_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Features_Del">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFeatures/Features_Del" message="tns:IFeatures_Features_Del_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFeatures/Features_DelResponse" message="tns:IFeatures_Features_Del_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Features_ById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFeatures/Features_ById" message="tns:IFeatures_Features_ById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFeatures/Features_ByIdResponse" message="tns:IFeatures_Features_ById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Features_Search">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFeatures/Features_Search" message="tns:IFeatures_Features_Search_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFeatures/Features_SearchResponse" message="tns:IFeatures_Features_Search_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Features_Search_A">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFeatures/Features_Search_A" message="tns:IFeatures_Features_Search_A_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFeatures/Features_Search_AResponse" message="tns:IFeatures_Features_Search_A_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IUser" type="tns:IUser">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Users_Ins">
+      <soap:operation soapAction="http://tempuri.org/IUser/Users_Ins" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Users_Ins_A">
+      <soap:operation soapAction="http://tempuri.org/IUser/Users_Ins_A" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Users_Upd">
+      <soap:operation soapAction="http://tempuri.org/IUser/Users_Upd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Users_Upd_A">
+      <soap:operation soapAction="http://tempuri.org/IUser/Users_Upd_A" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Users_Del">
+      <soap:operation soapAction="http://tempuri.org/IUser/Users_Del" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Users_CheckLogin">
+      <soap:operation soapAction="http://tempuri.org/IUser/Users_CheckLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Users_ById">
+      <soap:operation soapAction="http://tempuri.org/IUser/Users_ById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Users_Search">
+      <soap:operation soapAction="http://tempuri.org/IUser/Users_Search" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Userdomain_Search">
+      <soap:operation soapAction="http://tempuri.org/IUser/Userdomain_Search" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Users_ByParent">
+      <soap:operation soapAction="http://tempuri.org/IUser/Users_ByParent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IMessages" type="tns:IMessages">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Messages_Search">
+      <soap:operation soapAction="http://tempuri.org/IMessages/Messages_Search" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Messages_Read">
+      <soap:operation soapAction="http://tempuri.org/IMessages/Messages_Read" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Messages_Ins">
+      <soap:operation soapAction="http://tempuri.org/IMessages/Messages_Ins" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Messages_NotifyIns">
+      <soap:operation soapAction="http://tempuri.org/IMessages/Messages_NotifyIns" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Messages_ById">
+      <soap:operation soapAction="http://tempuri.org/IMessages/Messages_ById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Messages_UpdFBID">
+      <soap:operation soapAction="http://tempuri.org/IMessages/Messages_UpdFBID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IListDomain" type="tns:IListDomain">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Listdomain_Search">
+      <soap:operation soapAction="http://tempuri.org/IListDomain/Listdomain_Search" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Listdomain_ById">
+      <soap:operation soapAction="http://tempuri.org/IListDomain/Listdomain_ById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Listdomain_Ins">
+      <soap:operation soapAction="http://tempuri.org/IListDomain/Listdomain_Ins" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Listdomain_Upd">
+      <soap:operation soapAction="http://tempuri.org/IListDomain/Listdomain_Upd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Listdomain_Del">
+      <soap:operation soapAction="http://tempuri.org/IListDomain/Listdomain_Del" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IConfigs" type="tns:IConfigs">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Configtype_ByUser">
+      <soap:operation soapAction="http://tempuri.org/IConfigs/Configtype_ByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Userconfig_Upd">
+      <soap:operation soapAction="http://tempuri.org/IConfigs/Userconfig_Upd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Userconfig_Upd_A">
+      <soap:operation soapAction="http://tempuri.org/IConfigs/Userconfig_Upd_A" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_ICheckDomain" type="tns:ICheckDomain">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DomainChange_Ins">
+      <soap:operation soapAction="http://tempuri.org/ICheckDomain/DomainChange_Ins" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DomainChange_Search">
+      <soap:operation soapAction="http://tempuri.org/ICheckDomain/DomainChange_Search" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DomainProfile_Ins">
+      <soap:operation soapAction="http://tempuri.org/ICheckDomain/DomainProfile_Ins" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DomainProfile_Search">
+      <soap:operation soapAction="http://tempuri.org/ICheckDomain/DomainProfile_Search" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_ISchedule" type="tns:ISchedule">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Schedules_Cal">
+      <soap:operation soapAction="http://tempuri.org/ISchedule/Schedules_Cal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Schedules_GetByDate">
+      <soap:operation soapAction="http://tempuri.org/ISchedule/Schedules_GetByDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Schedules_GetLast">
+      <soap:operation soapAction="http://tempuri.org/ISchedule/Schedules_GetLast" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Schedules_DT">
+      <soap:operation soapAction="http://tempuri.org/ISchedule/Schedules_DT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Schedules_Search">
+      <soap:operation soapAction="http://tempuri.org/ISchedule/Schedules_Search" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ScheduleDt_UpdExecute">
+      <soap:operation soapAction="http://tempuri.org/ISchedule/ScheduleDt_UpdExecute" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IOptions" type="tns:IOptions">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Options_Upd">
+      <soap:operation soapAction="http://tempuri.org/IOptions/Options_Upd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Options_Upd_A">
+      <soap:operation soapAction="http://tempuri.org/IOptions/Options_Upd_A" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Option_Search">
+      <soap:operation soapAction="http://tempuri.org/IOptions/Option_Search" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Optionlinks_Search">
+      <soap:operation soapAction="http://tempuri.org/IOptions/Optionlinks_Search" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Optionsuser_Search">
+      <soap:operation soapAction="http://tempuri.org/IOptions/Optionsuser_Search" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IFeatures" type="tns:IFeatures">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Features_Ins">
+      <soap:operation soapAction="http://tempuri.org/IFeatures/Features_Ins" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Features_Ins_A">
+      <soap:operation soapAction="http://tempuri.org/IFeatures/Features_Ins_A" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Features_Upd">
+      <soap:operation soapAction="http://tempuri.org/IFeatures/Features_Upd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Features_Upd_A">
+      <soap:operation soapAction="http://tempuri.org/IFeatures/Features_Upd_A" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Features_Del">
+      <soap:operation soapAction="http://tempuri.org/IFeatures/Features_Del" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Features_ById">
+      <soap:operation soapAction="http://tempuri.org/IFeatures/Features_ById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Features_Search">
+      <soap:operation soapAction="http://tempuri.org/IFeatures/Features_Search" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Features_Search_A">
+      <soap:operation soapAction="http://tempuri.org/IFeatures/Features_Search_A" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DFWService">
+    <wsdl:port name="BasicHttpBinding_IUser" binding="tns:BasicHttpBinding_IUser">
+      <soap:address location="http://27.0.12.24:7217/Services/DFWService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IMessages" binding="tns:BasicHttpBinding_IMessages">
+      <soap:address location="http://27.0.12.24:7217/Services/DFWService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IListDomain" binding="tns:BasicHttpBinding_IListDomain">
+      <soap:address location="http://27.0.12.24:7217/Services/DFWService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IConfigs" binding="tns:BasicHttpBinding_IConfigs">
+      <soap:address location="http://27.0.12.24:7217/Services/DFWService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_ICheckDomain" binding="tns:BasicHttpBinding_ICheckDomain">
+      <soap:address location="http://27.0.12.24:7217/Services/DFWService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_ISchedule" binding="tns:BasicHttpBinding_ISchedule">
+      <soap:address location="http://27.0.12.24:7217/Services/DFWService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IOptions" binding="tns:BasicHttpBinding_IOptions">
+      <soap:address location="http://27.0.12.24:7217/Services/DFWService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IFeatures" binding="tns:BasicHttpBinding_IFeatures">
+      <soap:address location="http://27.0.12.24:7217/Services/DFWService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="fad14e4e-c9f9-40f4-a83b-b37635c1c571" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://27.0.12.24:7217/Services/DFWService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="DFWService.xsd" MetadataType="Schema" ID="5047cbfd-4de0-4724-8489-4ee083b37d75" SourceId="1" SourceUrl="http://27.0.12.24:7217/Services/DFWService.svc?xsd=xsd3" />
+    <MetadataFile FileName="DFWService1.wsdl" MetadataType="Wsdl" ID="9b2b27ef-5117-4a29-bdea-449e5ad0fcde" SourceId="1" SourceUrl="http://27.0.12.24:7217/Services/DFWService.svc?wsdl" />
+    <MetadataFile FileName="DFWService32.xsd" MetadataType="Schema" ID="2952d376-bd0e-41e4-bce6-f3b667855fa6" SourceId="1" SourceUrl="http://27.0.12.24:7217/Services/DFWService.svc?xsd=xsd2" />
+    <MetadataFile FileName="DFWService1.disco" MetadataType="Disco" ID="f49314c2-b6c0-4b67-9852-f82e939894ae" SourceId="1" SourceUrl="http://27.0.12.24:7217/Services/DFWService.svc?disco" />
+    <MetadataFile FileName="DFWService31.xsd" MetadataType="Schema" ID="12e12b95-d8d2-40ea-a9d6-dd9a59b47360" SourceId="1" SourceUrl="http://27.0.12.24:7217/Services/DFWService.svc?xsd=xsd1" />
+    <MetadataFile FileName="DFWService3.xsd" MetadataType="Schema" ID="dea7e428-2a2f-4241-a1a9-0f747c4e8089" SourceId="1" SourceUrl="http://27.0.12.24:7217/Services/DFWService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

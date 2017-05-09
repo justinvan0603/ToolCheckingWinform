@@ -1,0 +1,747 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DEFACEWEBSITE" Class="DFWdbDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=27.0.12.24;Initial Catalog=DEFACEWEBSITE;Persist Security Info=True;User ID=deface" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DEFACEWEBSITEConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.Configtype_ByUser" Method="Configtype_ByUser">
+    <Parameter Name="USER" Parameter="uSER" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="Configtype_ByUserResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="USERNAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CONF_TYPE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CONF_VALUE" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="CONF_NAME" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="NOTES" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="VALUE_TYPE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Users_Upd" Method="Users_Upd">
+    <Parameter Name="p_ID" Type="System.String" DbType="NVarChar(450)" />
+    <Parameter Name="p_USERNAME" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="p_FULLNAME" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="p_PASSWORD" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="p_EMAIL" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="p_PHONE" Type="System.Int32" DbType="Int" />
+    <Parameter Name="p_PARENT_ID" Type="System.String" DbType="NVarChar(450)" />
+    <Parameter Name="p_DESCRIPTION" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="p_RECORD_STATUS" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="p_AUTH_STATUS" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="p_CREATE_DT" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="p_APPROVE_DT" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="p_EDIT_DT" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="p_MAKER_ID" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="p_CHECKER_ID" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="p_EDITOR_ID" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="DOMAIN" Parameter="dOMAIN" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Parameter Name="IsEditDetail" Parameter="isEditDetail" Type="System.String" DbType="VarChar(1)" />
+    <ElementType Name="Users_UpdResult">
+      <Column Name="Result" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="ID" Type="System.String" DbType="NVarChar(450)" CanBeNull="true" />
+      <Column Name="ErrorDesc" Type="System.String" DbType="NVarChar(36) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.DomainChange_Ins" Method="DomainChange_Ins">
+    <Parameter Name="DOMAIN_ID" Parameter="dOMAIN_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DOMAIN" Parameter="dOMAIN" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="TYPE" Parameter="tYPE" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="VALUE" Parameter="vALUE" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="CREATE_DT" Parameter="cREATE_DT" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="MAKER_ID" Parameter="mAKER_ID" Type="System.String" DbType="VarChar(15)" />
+    <ElementType Name="DomainChange_InsResult">
+      <Column Name="Result" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMAINCHANGE_ID" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+      <Column Name="ErrorDesc" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.DomainChange_Search" Method="DomainChange_Search">
+    <Parameter Name="DOMAIN_ID" Parameter="dOMAIN_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DOMAIN" Parameter="dOMAIN" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="TYPE" Parameter="tYPE" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="VALUE" Parameter="vALUE" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="CREATE_DT" Parameter="cREATE_DT" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="MAKER_ID" Parameter="mAKER_ID" Type="System.String" DbType="VarChar(15)" />
+    <ElementType Name="DomainChange_SearchResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DOMAIN_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DOMAIN" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="TYPE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="[VALUES]" Member="VALUES" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="IS_LEAF" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="PARENT_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CREATE_DT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MAKER_ID" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.DomainProfile_Ins" Method="DomainProfile_Ins">
+    <Parameter Name="DOMAIN_ID" Parameter="dOMAIN_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DOMAIN" Parameter="dOMAIN" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="TYPE" Parameter="tYPE" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="VALUE" Parameter="vALUE" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="CREATE_DT" Parameter="cREATE_DT" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="MAKER_ID" Parameter="mAKER_ID" Type="System.String" DbType="VarChar(15)" />
+    <ElementType Name="DomainProfile_InsResult">
+      <Column Name="Result" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMAINPROFILE_ID" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+      <Column Name="ErrorDesc" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.DomainProfile_Search" Method="DomainProfile_Search">
+    <Parameter Name="DOMAIN_ID" Parameter="dOMAIN_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DOMAIN" Parameter="dOMAIN" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="TYPE" Parameter="tYPE" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="VALUE" Parameter="vALUE" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="CREATE_DT" Parameter="cREATE_DT" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="MAKER_ID" Parameter="mAKER_ID" Type="System.String" DbType="VarChar(15)" />
+    <ElementType Name="DomainProfile_SearchResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DOMAIN_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DOMAIN" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="TYPE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="[VALUES]" Member="VALUES" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CREATE_DT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MAKER_ID" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Features_ById" Method="Features_ById">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Features_ByIdResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FEA_TYPE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CONTENTS" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="[LEVEL]" Member="LEVEL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RESOURCE" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="RECORD_STATUS" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="AUTH_STATUS" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="APPROVE_DT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EDIT_DT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CHECKER_ID" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="EDITOR_ID" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="CREATE_DT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MAKER_ID" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Features_Del" Method="Features_Del">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Features_DelResult">
+      <Column Name="Result" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="ErrorDesc" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Features_Ins" Method="Features_Ins">
+    <Parameter Name="p_FEA_TYPE" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="p_CONTENTS" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="p_LEVEL" Type="System.Int32" DbType="Int" />
+    <Parameter Name="p_RESOURCE" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="p_RECORD_STATUS" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="p_AUTH_STATUS" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="p_APPROVE_DT" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="p_EDIT_DT" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="p_CHECKER_ID" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="p_EDITOR_ID" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="p_CREATE_DT" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="p_MAKER_ID" Type="System.String" DbType="VarChar(15)" />
+    <ElementType Name="Features_InsResult">
+      <Column Name="Result" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="ID" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ErrorDesc" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Features_Search" Method="Features_Search">
+    <Parameter Name="FEA_TYPE" Parameter="fEA_TYPE" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="CONTENTS" Parameter="cONTENTS" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="LEVEL" Parameter="lEVEL" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RESOURCE" Parameter="rESOURCE" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="RECORD_STATUS" Parameter="rECORD_STATUS" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="AUTH_STATUS" Parameter="aUTH_STATUS" Type="System.String" DbType="VarChar(1)" />
+    <ElementType Name="Features_SearchResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FEA_TYPE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CONTENTS" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="[LEVEL]" Member="LEVEL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RESOURCE" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="RECORD_STATUS" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="AUTH_STATUS" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="APPROVE_DT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EDIT_DT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CHECKER_ID" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="EDITOR_ID" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="CREATE_DT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MAKER_ID" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Features_Upd" Method="Features_Upd">
+    <Parameter Name="p_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="p_FEA_TYPE" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="p_CONTENTS" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="p_LEVEL" Type="System.Int32" DbType="Int" />
+    <Parameter Name="p_RESOURCE" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="p_RECORD_STATUS" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="p_AUTH_STATUS" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="p_APPROVE_DT" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="p_EDIT_DT" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="p_CHECKER_ID" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="p_EDITOR_ID" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="p_CREATE_DT" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="p_MAKER_ID" Type="System.String" DbType="VarChar(15)" />
+    <ElementType Name="Features_UpdResult">
+      <Column Name="Result" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ErrorDesc" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Listdomain_ById" Method="Listdomain_ById">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Listdomain_ByIdResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DOMAIN" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="USER_ID" Type="System.String" DbType="NVarChar(450)" CanBeNull="true" />
+      <Column Name="USERNAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DESCRIPTION" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="RECORD_STATUS" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="AUTH_STATUS" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="CREATE_DT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="APPROVE_DT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EDIT_DT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MAKER_ID" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="CHECKER_ID" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="EDITOR_ID" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Listdomain_Del" Method="Listdomain_Del">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Listdomain_DelResult">
+      <Column Name="Result" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="ErrorDesc" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Listdomain_Ins" Method="Listdomain_Ins">
+    <Parameter Name="p_DOMAIN" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="p_USER_ID" Type="System.String" DbType="NVarChar(450)" />
+    <Parameter Name="p_USERNAME" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="p_DESCRIPTION" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="p_RECORD_STATUS" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="p_AUTH_STATUS" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="p_CREATE_DT" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="p_APPROVE_DT" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="p_EDIT_DT" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="p_MAKER_ID" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="p_CHECKER_ID" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="p_EDITOR_ID" Type="System.String" DbType="VarChar(15)" />
+    <ElementType Name="Listdomain_InsResult">
+      <Column Name="Result" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="ID" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="ErrorDesc" Type="System.String" DbType="NVarChar(18) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Listdomain_Search" Method="Listdomain_Search">
+    <Parameter Name="USER" Parameter="uSER" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="DOMAIN" Parameter="dOMAIN" Type="System.String" DbType="VarChar(500)" />
+    <Parameter Name="RECORD_STATUS" Parameter="rECORD_STATUS" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="CREATE_DT" Parameter="cREATE_DT" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="Listdomain_SearchResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DOMAIN" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="USER_ID" Type="System.String" DbType="NVarChar(450)" CanBeNull="true" />
+      <Column Name="USERNAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DESCRIPTION" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="RECORD_STATUS" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="AUTH_STATUS" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="CREATE_DT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="APPROVE_DT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EDIT_DT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MAKER_ID" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="CHECKER_ID" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="EDITOR_ID" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="FULLNAME" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Listdomain_SearchByUsername" Method="Listdomain_SearchByUsername">
+    <Parameter Name="USERNAME" Parameter="uSERNAME" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="DOMAIN" Parameter="dOMAIN" Type="System.String" DbType="VarChar(500)" />
+    <Parameter Name="RECORD_STATUS" Parameter="rECORD_STATUS" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="CREATE_DT" Parameter="cREATE_DT" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="Listdomain_SearchByUsernameResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DOMAIN" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="USER_ID" Type="System.String" DbType="NVarChar(450)" CanBeNull="true" />
+      <Column Name="USERNAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DESCRIPTION" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="RECORD_STATUS" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="AUTH_STATUS" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="CREATE_DT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="APPROVE_DT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EDIT_DT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MAKER_ID" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="CHECKER_ID" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="EDITOR_ID" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="FULLNAME" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Listdomain_Upd" Method="Listdomain_Upd">
+    <Parameter Name="p_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="p_DOMAIN" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="p_USER_ID" Type="System.String" DbType="NVarChar(450)" />
+    <Parameter Name="p_USERNAME" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="p_DESCRIPTION" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="p_RECORD_STATUS" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="p_AUTH_STATUS" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="p_CREATE_DT" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="p_APPROVE_DT" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="p_EDIT_DT" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="p_MAKER_ID" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="p_CHECKER_ID" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="p_EDITOR_ID" Type="System.String" DbType="VarChar(15)" />
+    <ElementType Name="Listdomain_UpdResult">
+      <Column Name="Result" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ErrorDesc" Type="System.String" DbType="NVarChar(22) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Messages_ById" Method="Messages_ById">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Messages_ByIdResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TITLE" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="CONTENT" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="[USER]" Member="USER" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMAIN" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="STATUS" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="CREATE_DT" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="TYPE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="KEYTERM" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="ICON" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Messages_Ins" Method="Messages_Ins">
+    <Parameter Name="TITLE" Parameter="tITLE" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="CONTENT" Parameter="cONTENT" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="USER" Parameter="uSER" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="DOMAIN" Parameter="dOMAIN" Type="System.String" DbType="VarChar(500)" />
+    <Parameter Name="CREATE_DT" Parameter="cREATE_DT" Type="System.String" DbType="VarChar(30)" />
+    <ElementType Name="Messages_InsResult">
+      <Column Name="Result" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="MESSAGE_ID" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+      <Column Name="ErrorDesc" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Messages_NotifyIns" Method="Messages_NotifyIns">
+    <Parameter Name="TITLE" Parameter="tITLE" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="CONTENT" Parameter="cONTENT" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="USER" Parameter="uSER" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="DOMAIN" Parameter="dOMAIN" Type="System.String" DbType="VarChar(500)" />
+    <Parameter Name="LINK" Parameter="lINK" Type="System.String" DbType="VarChar(500)" />
+    <Parameter Name="CREATE_DT" Parameter="cREATE_DT" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="M_TYPE" Parameter="m_TYPE" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="p_KEY" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="p_ICON" Type="System.String" DbType="VarChar(200)" />
+    <ElementType Name="Messages_NotifyInsResult">
+      <Column Name="Id" Type="System.String" DbType="NVarChar(450) NOT NULL" CanBeNull="false" />
+      <Column Name="AccessFailedCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="APPROVE_DT" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="APPTOKEN" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="ConcurrencyStamp" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CREATE_DT" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="DESCRIPTION" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="EDIT_DT" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="EmailConfirmed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FULLNAME" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="LockoutEnabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LockoutEnd" Type="System.DateTimeOffset" DbType="DateTimeOffset" CanBeNull="true" />
+      <Column Name="NormalizedEmail" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="NormalizedUserName" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="PARENT_ID" Type="System.String" DbType="NVarChar(450)" CanBeNull="true" />
+      <Column Name="PASSWORD" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PasswordHash" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PHONE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PhoneNumberConfirmed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SecurityStamp" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="TwoFactorEnabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="AUTH_STATUS" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
+      <Column Name="CHECKER_ID" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="EDITOR_ID" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="MAKER_ID" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="RECORD_STATUS" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
+      <Column Name="MESSAGE_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Messages_Read" Method="Messages_Read">
+    <Parameter Name="MessageId" Parameter="messageId" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Messages_ReadResult">
+      <Column Name="Result" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="ErrorDesc" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Option_Search" Method="Option_Search">
+    <Parameter Name="DOMAIN" Parameter="dOMAIN" Type="System.String" DbType="VarChar(500)" />
+    <Parameter Name="USERNAME" Parameter="uSERNAME" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="RECORD_STATUS" Parameter="rECORD_STATUS" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="IS_LIMIT" Parameter="iS_LIMIT" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="TIMES" Parameter="tIMES" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Option_SearchResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DOMAIN_ID" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="IS_LIMIT" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="TIMES" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DESCRIPTION" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="RECORD_STATUS" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="AUTH_STATUS" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="CREATE_DT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="APPROVE_DT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EDIT_DT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MAKER_ID" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="CHECKER_ID" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="EDITOR_ID" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="USERNAME" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FULLNAME" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="PARENT_ID" Type="System.String" DbType="NVarChar(450)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Optionlinks_Search" Method="Optionlinks_Search">
+    <Parameter Name="DOMAIN" Parameter="dOMAIN" Type="System.String" DbType="VarChar(500)" />
+    <ElementType Name="Optionlinks_SearchResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OPTIONS_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DOMAIN_ID" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="LINK" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="RECORD_STATUS" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="CREATE_DT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MAKER_ID" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Options_Upd" Method="Options_Upd">
+    <Parameter Name="p_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="p_DOMAIN_ID" Type="System.String" DbType="VarChar(500)" />
+    <Parameter Name="p_IS_LIMIT" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="p_TIMES" Type="System.Int32" DbType="Int" />
+    <Parameter Name="p_DESCRIPTION" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="p_RECORD_STATUS" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="p_AUTH_STATUS" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="p_CREATE_DT" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="p_APPROVE_DT" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="p_EDIT_DT" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="p_MAKER_ID" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="p_CHECKER_ID" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="p_EDITOR_ID" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="DOMAINLINK" Parameter="dOMAINLINK" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Parameter Name="DOMAINUSER" Parameter="dOMAINUSER" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Parameter Name="IsEditUser" Parameter="isEditUser" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="IsEditLink" Parameter="isEditLink" Type="System.String" DbType="VarChar(1)" />
+    <ElementType Name="Options_UpdResult">
+      <Column Name="Result" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ErrorDesc" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Optionsuser_Search" Method="Optionsuser_Search">
+    <Parameter Name="USER" Parameter="uSER" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="DOMAIN" Parameter="dOMAIN" Type="System.String" DbType="VarChar(500)" />
+    <ElementType Name="Optionsuser_SearchResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="USER_ID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DOMAIN_ID" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="NOTES" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="FULLNAME" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="USERID" Type="System.String" DbType="NVarChar(450)" CanBeNull="true" />
+      <Column Name="PARENT_ID" Type="System.String" DbType="NVarChar(450)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Schedules_Cal" Method="Schedules_Cal">
+    <Parameter Name="DATE" Parameter="dATE" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="USER" Parameter="uSER" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="CREATE_DT" Parameter="cREATE_DT" Type="System.String" DbType="VarChar(30)" />
+    <ElementType Name="Schedules_CalResult">
+      <Column Name="Result" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="SCHEDULEID" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="ErrorDesc" Type="System.String" DbType="NVarChar(43)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Schedules_DT" Method="Schedules_DT">
+    <Parameter Name="DATE" Parameter="dATE" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="TERM" Parameter="tERM" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="Schedules_DTResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SCH_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="SCH_TERM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DOMAIN_ID" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="LINK_ID" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="EXE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EXECUTED" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="RES_TYPE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Schedules_GetByDate" Method="Schedules_GetByDate">
+    <Parameter Name="DATE" Parameter="dATE" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="Schedules_GetByDateResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SCH_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="SCH_TERM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TOTAL_DOMAIN" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="TOTAL_LINK" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="IS_LEAF" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="PARENT_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NOTES" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="PROCESS_STATUS" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="CREATE_DT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MAKER_ID" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="P_DONE" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="P_WARNING" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="P_ALERT" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="EVENT_TIME" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="EXEC_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Schedules_GetLast" Method="Schedules_GetLast">
+    <Parameter Name="DATE" Parameter="dATE" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="TOP" Parameter="tOP" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Schedules_GetLastResult">
+      <Column Name="SCH_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="TIMES" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TOTAL_DOMAIN" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="TOTAL_LINK" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Schedules_Search" Method="Schedules_Search">
+    <Parameter Name="DATE" Parameter="dATE" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="TERM" Parameter="tERM" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="CREATE_DT" Parameter="cREATE_DT" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="STATUS" Parameter="sTATUS" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="TOP" Parameter="tOP" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Schedules_SearchResult">
+      <Column Name="STT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SCH_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="EVENT_TIME" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="SCH_TERM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TOTAL_DOMAIN" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="TOTAL_LINK" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="PROCESS_STATUS" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="NOTES" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CREATE_DT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EXEC_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="P_DONE" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="P_WARNING" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="P_ALERT" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Userconfig_Upd" Method="Userconfig_Upd">
+    <Parameter Name="USER" Parameter="uSER" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="CONFIG" Parameter="cONFIG" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <ElementType Name="Userconfig_UpdResult">
+      <Column Name="Result" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="ID" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="ErrorDesc" Type="System.String" DbType="NVarChar(28) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Userdomain_Search" Method="Userdomain_Search">
+    <Parameter Name="USER" Parameter="uSER" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="DOMAIN" Parameter="dOMAIN" Type="System.String" DbType="VarChar(500)" />
+    <ElementType Name="Userdomain_SearchResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="USER_ID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DOMAIN_ID" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="NOTES" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Users_ById" Method="Users_ById">
+    <Parameter Name="p_USERNAME" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="p_USERID" Type="System.String" DbType="NVarChar(450)" />
+    <ElementType Name="Users_ByIdResult">
+      <Column Name="Id" Type="System.String" DbType="NVarChar(450) NOT NULL" CanBeNull="false" />
+      <Column Name="AccessFailedCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="APPROVE_DT" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="APPTOKEN" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="ConcurrencyStamp" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CREATE_DT" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="DESCRIPTION" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="EDIT_DT" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="EmailConfirmed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FULLNAME" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="LockoutEnabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LockoutEnd" Type="System.DateTimeOffset" DbType="DateTimeOffset" CanBeNull="true" />
+      <Column Name="NormalizedEmail" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="NormalizedUserName" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="PARENT_ID" Type="System.String" DbType="NVarChar(450)" CanBeNull="true" />
+      <Column Name="PASSWORD" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PasswordHash" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PHONE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PhoneNumberConfirmed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SecurityStamp" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="TwoFactorEnabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="AUTH_STATUS" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
+      <Column Name="CHECKER_ID" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="EDITOR_ID" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="MAKER_ID" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="RECORD_STATUS" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Users_ByParent" Method="Users_ByParent">
+    <Parameter Name="p_PARENT_ID" Type="System.String" DbType="NVarChar(450)" />
+    <Parameter Name="p_PARENT_NAME" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="Users_ByParentResult">
+      <Column Name="Id" Type="System.String" DbType="NVarChar(450) NOT NULL" CanBeNull="false" />
+      <Column Name="AccessFailedCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="APPROVE_DT" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="APPTOKEN" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="ConcurrencyStamp" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CREATE_DT" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="DESCRIPTION" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="EDIT_DT" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="EmailConfirmed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FULLNAME" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="LockoutEnabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LockoutEnd" Type="System.DateTimeOffset" DbType="DateTimeOffset" CanBeNull="true" />
+      <Column Name="NormalizedEmail" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="NormalizedUserName" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="PARENT_ID" Type="System.String" DbType="NVarChar(450)" CanBeNull="true" />
+      <Column Name="PASSWORD" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PasswordHash" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PHONE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PhoneNumberConfirmed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SecurityStamp" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="TwoFactorEnabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="AUTH_STATUS" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
+      <Column Name="CHECKER_ID" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="EDITOR_ID" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="MAKER_ID" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="RECORD_STATUS" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Users_CheckLogin" Method="Users_CheckLogin">
+    <Parameter Name="p_USERNAME" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="p_PASSWORD" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="p_TOKEN" Type="System.String" DbType="VarChar(1000)" />
+    <ElementType Name="Users_CheckLoginResult">
+      <Column Name="Result" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="ErrorDesc" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Users_Del" Method="Users_Del">
+    <Parameter Name="ID" Parameter="iD" Type="System.String" DbType="NVarChar(450)" />
+    <ElementType Name="Users_DelResult">
+      <Column Name="Result" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="ErrorDesc" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Users_Ins" Method="Users_Ins">
+    <Parameter Name="p_USERNAME" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="p_FULLNAME" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="p_PASSWORD" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="p_EMAIL" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="p_PHONE" Type="System.Int32" DbType="Int" />
+    <Parameter Name="p_PARENT_ID" Type="System.String" DbType="NVarChar(450)" />
+    <Parameter Name="p_DESCRIPTION" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="p_RECORD_STATUS" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="p_AUTH_STATUS" Type="System.String" DbType="VarChar(1)" />
+    <Parameter Name="p_CREATE_DT" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="p_APPROVE_DT" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="p_EDIT_DT" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="p_MAKER_ID" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="p_CHECKER_ID" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="p_EDITOR_ID" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="DOMAIN" Parameter="dOMAIN" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <ElementType Name="Users_InsResult">
+      <Column Name="Result" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="ID" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="ErrorDesc" Type="System.String" DbType="NVarChar(36) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Users_Search" Method="Users_Search">
+    <Parameter Name="p_USERNAME" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="p_FULLNAME" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="p_EMAIL" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="p_PHONE" Type="System.Int32" DbType="Int" />
+    <Parameter Name="p_TOP" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Users_SearchResult">
+      <Column Name="Id" Type="System.String" DbType="NVarChar(450) NOT NULL" CanBeNull="false" />
+      <Column Name="AccessFailedCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="APPROVE_DT" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="APPTOKEN" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="ConcurrencyStamp" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CREATE_DT" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="DESCRIPTION" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="EDIT_DT" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="EmailConfirmed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FULLNAME" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="LockoutEnabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LockoutEnd" Type="System.DateTimeOffset" DbType="DateTimeOffset" CanBeNull="true" />
+      <Column Name="NormalizedEmail" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="NormalizedUserName" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="PARENT_ID" Type="System.String" DbType="NVarChar(450)" CanBeNull="true" />
+      <Column Name="PASSWORD" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PasswordHash" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PHONE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PhoneNumberConfirmed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SecurityStamp" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="TwoFactorEnabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="AUTH_STATUS" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
+      <Column Name="CHECKER_ID" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="EDITOR_ID" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="MAKER_ID" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="RECORD_STATUS" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
+      <Column Name="P_ID" Type="System.String" DbType="NVarChar(450)" CanBeNull="true" />
+      <Column Name="P_USERNAME" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="P_FULLNAME" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ScheduleDt_UpdExecute" Method="ScheduleDt_UpdExecute">
+    <Parameter Name="p_SCH_DATE" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="p_SCH_TERM" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="p_LINK_ID" Type="System.String" DbType="VarChar(500)" />
+    <ElementType Name="ScheduleDt_UpdExecuteResult">
+      <Column Name="Result" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="MESSAGE_ID" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+      <Column Name="ErrorDesc" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Messages_Search" Method="Messages_Search">
+    <Parameter Name="USER" Parameter="uSER" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="DOMAIN" Parameter="dOMAIN" Type="System.String" DbType="VarChar(500)" />
+    <Parameter Name="STATUS" Parameter="sTATUS" Type="System.String" DbType="VarChar(1)" />
+    <ElementType Name="Messages_SearchResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TITLE" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="CONTENT" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="[USER]" Member="USER" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMAIN" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="STATUS" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="CREATE_DT" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="TYPE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="KEYTERM" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="ICON" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MESSAGE_FB_ID" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Messages_UpdFBID" Method="Messages_UpdFBID">
+    <Parameter Name="MESSAGE_ID" Parameter="mESSAGE_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FB_ID" Parameter="fB_ID" Type="System.String" DbType="NVarChar(300)" />
+    <ElementType Name="Messages_UpdFBIDResult">
+      <Column Name="Result" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="ErrorDesc" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Messages_ByFbId" Method="Messages_ByFbId">
+    <Parameter Name="FB_ID" Parameter="fB_ID" Type="System.String" DbType="NVarChar(300)" />
+    <ElementType Name="Messages_ByFbIdResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TITLE" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="CONTENT" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="[USER]" Member="USER" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMAIN" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="STATUS" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="CREATE_DT" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="TYPE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="KEYTERM" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="ICON" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MESSAGE_FB_ID" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

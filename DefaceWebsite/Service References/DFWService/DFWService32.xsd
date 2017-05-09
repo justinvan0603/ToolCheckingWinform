@@ -1,0 +1,651 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://27.0.12.24:7217/Services/DFWService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System" />
+  <xs:import schemaLocation="http://27.0.12.24:7217/Services/DFWService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="Users_InsResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorDesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Users_InsResult" nillable="true" type="tns:Users_InsResult" />
+  <xs:complexType name="Users_UpdResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorDesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Users_UpdResult" nillable="true" type="tns:Users_UpdResult" />
+  <xs:complexType name="Users_DelResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorDesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Users_DelResult" nillable="true" type="tns:Users_DelResult" />
+  <xs:complexType name="Users_CheckLoginResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorDesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Users_CheckLoginResult" nillable="true" type="tns:Users_CheckLoginResult" />
+  <xs:complexType name="Users_ByIdResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="APPROVE_DT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="APPTOKEN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AUTH_STATUS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AccessFailedCount" type="xs:int" />
+      <xs:element minOccurs="0" name="CHECKER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATE_DT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ConcurrencyStamp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DESCRIPTION" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EDITOR_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EDIT_DT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmailConfirmed" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FULLNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LockoutEnabled" type="xs:boolean" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="LockoutEnd" nillable="true" type="q1:DateTimeOffset" />
+      <xs:element minOccurs="0" name="MAKER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NormalizedEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NormalizedUserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PARENT_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PASSWORD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PHONE" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PasswordHash" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneNumberConfirmed" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RECORD_STATUS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SecurityStamp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TwoFactorEnabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Users_ByIdResult" nillable="true" type="tns:Users_ByIdResult" />
+  <xs:complexType name="Users_SearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="APPROVE_DT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="APPTOKEN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AUTH_STATUS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AccessFailedCount" type="xs:int" />
+      <xs:element minOccurs="0" name="CHECKER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATE_DT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ConcurrencyStamp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DESCRIPTION" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EDITOR_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EDIT_DT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmailConfirmed" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FULLNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LockoutEnabled" type="xs:boolean" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="LockoutEnd" nillable="true" type="q2:DateTimeOffset" />
+      <xs:element minOccurs="0" name="MAKER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NormalizedEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NormalizedUserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PARENT_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PASSWORD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PHONE" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="P_FULLNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="P_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="P_USERNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PasswordHash" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneNumberConfirmed" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RECORD_STATUS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SecurityStamp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TwoFactorEnabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Users_SearchResult" nillable="true" type="tns:Users_SearchResult" />
+  <xs:complexType name="ArrayOfUsers_SearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Users_SearchResult" nillable="true" type="tns:Users_SearchResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUsers_SearchResult" nillable="true" type="tns:ArrayOfUsers_SearchResult" />
+  <xs:complexType name="ArrayOfUserdomain_SearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Userdomain_SearchResult" nillable="true" type="tns:Userdomain_SearchResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserdomain_SearchResult" nillable="true" type="tns:ArrayOfUserdomain_SearchResult" />
+  <xs:complexType name="Userdomain_SearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DOMAIN_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="NOTES" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="USER_ID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Userdomain_SearchResult" nillable="true" type="tns:Userdomain_SearchResult" />
+  <xs:complexType name="ArrayOfUsers_ByParentResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Users_ByParentResult" nillable="true" type="tns:Users_ByParentResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUsers_ByParentResult" nillable="true" type="tns:ArrayOfUsers_ByParentResult" />
+  <xs:complexType name="Users_ByParentResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="APPROVE_DT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="APPTOKEN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AUTH_STATUS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AccessFailedCount" type="xs:int" />
+      <xs:element minOccurs="0" name="CHECKER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATE_DT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ConcurrencyStamp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DESCRIPTION" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EDITOR_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EDIT_DT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmailConfirmed" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FULLNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LockoutEnabled" type="xs:boolean" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="LockoutEnd" nillable="true" type="q3:DateTimeOffset" />
+      <xs:element minOccurs="0" name="MAKER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NormalizedEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NormalizedUserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PARENT_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PASSWORD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PHONE" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PasswordHash" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneNumberConfirmed" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RECORD_STATUS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SecurityStamp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TwoFactorEnabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Users_ByParentResult" nillable="true" type="tns:Users_ByParentResult" />
+  <xs:complexType name="ArrayOfMessages_SearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Messages_SearchResult" nillable="true" type="tns:Messages_SearchResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMessages_SearchResult" nillable="true" type="tns:ArrayOfMessages_SearchResult" />
+  <xs:complexType name="Messages_SearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CONTENT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATE_DT" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DOMAIN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ICON" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="KEYTERM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MESSAGE_FB_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="STATUS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TITLE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TYPE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="USER" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Messages_SearchResult" nillable="true" type="tns:Messages_SearchResult" />
+  <xs:complexType name="Messages_ReadResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorDesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Messages_ReadResult" nillable="true" type="tns:Messages_ReadResult" />
+  <xs:complexType name="Messages_InsResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorDesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MESSAGE_ID" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Messages_InsResult" nillable="true" type="tns:Messages_InsResult" />
+  <xs:complexType name="ArrayOfMessages_NotifyInsResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Messages_NotifyInsResult" nillable="true" type="tns:Messages_NotifyInsResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMessages_NotifyInsResult" nillable="true" type="tns:ArrayOfMessages_NotifyInsResult" />
+  <xs:complexType name="Messages_NotifyInsResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="APPROVE_DT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="APPTOKEN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AUTH_STATUS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AccessFailedCount" type="xs:int" />
+      <xs:element minOccurs="0" name="CHECKER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATE_DT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ConcurrencyStamp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DESCRIPTION" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EDITOR_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EDIT_DT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmailConfirmed" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FULLNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LockoutEnabled" type="xs:boolean" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="LockoutEnd" nillable="true" type="q4:DateTimeOffset" />
+      <xs:element minOccurs="0" name="MAKER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MESSAGE_ID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="NormalizedEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NormalizedUserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PARENT_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PASSWORD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PHONE" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PasswordHash" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneNumberConfirmed" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RECORD_STATUS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SecurityStamp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TwoFactorEnabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Messages_NotifyInsResult" nillable="true" type="tns:Messages_NotifyInsResult" />
+  <xs:complexType name="Messages_ByIdResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CONTENT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATE_DT" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DOMAIN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ICON" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="KEYTERM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="STATUS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TITLE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TYPE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="USER" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Messages_ByIdResult" nillable="true" type="tns:Messages_ByIdResult" />
+  <xs:complexType name="Messages_UpdFBIDResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorDesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Messages_UpdFBIDResult" nillable="true" type="tns:Messages_UpdFBIDResult" />
+  <xs:complexType name="ArrayOfListdomain_SearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Listdomain_SearchResult" nillable="true" type="tns:Listdomain_SearchResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListdomain_SearchResult" nillable="true" type="tns:ArrayOfListdomain_SearchResult" />
+  <xs:complexType name="Listdomain_SearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="APPROVE_DT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="AUTH_STATUS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CHECKER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATE_DT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DESCRIPTION" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DOMAIN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EDITOR_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EDIT_DT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FULLNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="MAKER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RECORD_STATUS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="USERNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="USER_ID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Listdomain_SearchResult" nillable="true" type="tns:Listdomain_SearchResult" />
+  <xs:complexType name="Listdomain_ByIdResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="APPROVE_DT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="AUTH_STATUS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CHECKER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATE_DT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DESCRIPTION" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DOMAIN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EDITOR_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EDIT_DT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="MAKER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RECORD_STATUS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="USERNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="USER_ID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Listdomain_ByIdResult" nillable="true" type="tns:Listdomain_ByIdResult" />
+  <xs:complexType name="Listdomain_InsResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorDesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Listdomain_InsResult" nillable="true" type="tns:Listdomain_InsResult" />
+  <xs:complexType name="Listdomain_UpdResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorDesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Listdomain_UpdResult" nillable="true" type="tns:Listdomain_UpdResult" />
+  <xs:complexType name="Listdomain_DelResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorDesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Listdomain_DelResult" nillable="true" type="tns:Listdomain_DelResult" />
+  <xs:complexType name="ArrayOfConfigtype_ByUserResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Configtype_ByUserResult" nillable="true" type="tns:Configtype_ByUserResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfConfigtype_ByUserResult" nillable="true" type="tns:ArrayOfConfigtype_ByUserResult" />
+  <xs:complexType name="Configtype_ByUserResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CONF_NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CONF_TYPE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CONF_VALUE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="NOTES" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="USERNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VALUE_TYPE" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Configtype_ByUserResult" nillable="true" type="tns:Configtype_ByUserResult" />
+  <xs:complexType name="Userconfig_UpdResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorDesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Userconfig_UpdResult" nillable="true" type="tns:Userconfig_UpdResult" />
+  <xs:complexType name="DomainChange_SearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CREATE_DT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DOMAIN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DOMAIN_ID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="IS_LEAF" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MAKER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PARENT_ID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TYPE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VALUES" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DomainChange_SearchResult" nillable="true" type="tns:DomainChange_SearchResult" />
+  <xs:complexType name="DomainChange_InsResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DOMAINCHANGE_ID" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ErrorDesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DomainChange_InsResult" nillable="true" type="tns:DomainChange_InsResult" />
+  <xs:complexType name="ArrayOfDomainChange_SearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DomainChange_SearchResult" nillable="true" type="tns:DomainChange_SearchResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDomainChange_SearchResult" nillable="true" type="tns:ArrayOfDomainChange_SearchResult" />
+  <xs:complexType name="DomainProfile_SearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CREATE_DT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DOMAIN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DOMAIN_ID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="MAKER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TYPE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VALUES" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DomainProfile_SearchResult" nillable="true" type="tns:DomainProfile_SearchResult" />
+  <xs:complexType name="DomainProfile_InsResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DOMAINPROFILE_ID" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ErrorDesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DomainProfile_InsResult" nillable="true" type="tns:DomainProfile_InsResult" />
+  <xs:complexType name="ArrayOfDomainProfile_SearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DomainProfile_SearchResult" nillable="true" type="tns:DomainProfile_SearchResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDomainProfile_SearchResult" nillable="true" type="tns:ArrayOfDomainProfile_SearchResult" />
+  <xs:complexType name="Schedules_CalResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorDesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SCHEDULEID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Schedules_CalResult" nillable="true" type="tns:Schedules_CalResult" />
+  <xs:complexType name="ArrayOfSchedules_GetByDateResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Schedules_GetByDateResult" nillable="true" type="tns:Schedules_GetByDateResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSchedules_GetByDateResult" nillable="true" type="tns:ArrayOfSchedules_GetByDateResult" />
+  <xs:complexType name="Schedules_GetByDateResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CREATE_DT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EVENT_TIME" nillable="true" type="ser:duration" />
+      <xs:element minOccurs="0" name="EXEC_DATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="IS_LEAF" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MAKER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NOTES" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PARENT_ID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PROCESS_STATUS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="P_ALERT" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="P_DONE" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="P_WARNING" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SCH_DATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SCH_TERM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TOTAL_DOMAIN" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TOTAL_LINK" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Schedules_GetByDateResult" nillable="true" type="tns:Schedules_GetByDateResult" />
+  <xs:complexType name="ArrayOfSchedules_GetLastResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Schedules_GetLastResult" nillable="true" type="tns:Schedules_GetLastResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSchedules_GetLastResult" nillable="true" type="tns:ArrayOfSchedules_GetLastResult" />
+  <xs:complexType name="Schedules_GetLastResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SCH_DATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TIMES" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TOTAL_DOMAIN" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TOTAL_LINK" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Schedules_GetLastResult" nillable="true" type="tns:Schedules_GetLastResult" />
+  <xs:complexType name="ArrayOfSchedules_DTResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Schedules_DTResult" nillable="true" type="tns:Schedules_DTResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSchedules_DTResult" nillable="true" type="tns:ArrayOfSchedules_DTResult" />
+  <xs:complexType name="Schedules_DTResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DOMAIN_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EXECUTED" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EXE_DATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="LINK_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RES_TYPE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SCH_DATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SCH_TERM" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Schedules_DTResult" nillable="true" type="tns:Schedules_DTResult" />
+  <xs:complexType name="Schedules_SearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CREATE_DT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EVENT_TIME" nillable="true" type="ser:duration" />
+      <xs:element minOccurs="0" name="EXEC_DATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="NOTES" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PROCESS_STATUS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="P_ALERT" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="P_DONE" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="P_WARNING" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SCH_DATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SCH_TERM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="STT" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="TOTAL_DOMAIN" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TOTAL_LINK" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Schedules_SearchResult" nillable="true" type="tns:Schedules_SearchResult" />
+  <xs:complexType name="ArrayOfSchedules_SearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Schedules_SearchResult" nillable="true" type="tns:Schedules_SearchResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSchedules_SearchResult" nillable="true" type="tns:ArrayOfSchedules_SearchResult" />
+  <xs:complexType name="ScheduleDt_UpdExecuteResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorDesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MESSAGE_ID" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ScheduleDt_UpdExecuteResult" nillable="true" type="tns:ScheduleDt_UpdExecuteResult" />
+  <xs:complexType name="Option_SearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="APPROVE_DT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="AUTH_STATUS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CHECKER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATE_DT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DESCRIPTION" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DOMAIN_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EDITOR_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EDIT_DT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FULLNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="IS_LIMIT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MAKER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PARENT_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RECORD_STATUS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TIMES" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="USERNAME" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Option_SearchResult" nillable="true" type="tns:Option_SearchResult" />
+  <xs:complexType name="Options_UpdResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorDesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Options_UpdResult" nillable="true" type="tns:Options_UpdResult" />
+  <xs:complexType name="ArrayOfOption_SearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Option_SearchResult" nillable="true" type="tns:Option_SearchResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOption_SearchResult" nillable="true" type="tns:ArrayOfOption_SearchResult" />
+  <xs:complexType name="ArrayOfOptionlinks_SearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Optionlinks_SearchResult" nillable="true" type="tns:Optionlinks_SearchResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOptionlinks_SearchResult" nillable="true" type="tns:ArrayOfOptionlinks_SearchResult" />
+  <xs:complexType name="Optionlinks_SearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CREATE_DT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DOMAIN_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="LINK" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MAKER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OPTIONS_ID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="RECORD_STATUS" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Optionlinks_SearchResult" nillable="true" type="tns:Optionlinks_SearchResult" />
+  <xs:complexType name="ArrayOfOptionsuser_SearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Optionsuser_SearchResult" nillable="true" type="tns:Optionsuser_SearchResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOptionsuser_SearchResult" nillable="true" type="tns:ArrayOfOptionsuser_SearchResult" />
+  <xs:complexType name="Optionsuser_SearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DOMAIN_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FULLNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="NOTES" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PARENT_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="USERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="USER_ID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Optionsuser_SearchResult" nillable="true" type="tns:Optionsuser_SearchResult" />
+  <xs:complexType name="Features_SearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="APPROVE_DT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="AUTH_STATUS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CHECKER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CONTENTS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATE_DT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EDITOR_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EDIT_DT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FEA_TYPE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="LEVEL" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="MAKER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RECORD_STATUS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RESOURCE" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Features_SearchResult" nillable="true" type="tns:Features_SearchResult" />
+  <xs:complexType name="Features_InsResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorDesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Features_InsResult" nillable="true" type="tns:Features_InsResult" />
+  <xs:complexType name="Features_UpdResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorDesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Features_UpdResult" nillable="true" type="tns:Features_UpdResult" />
+  <xs:complexType name="Features_DelResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorDesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Features_DelResult" nillable="true" type="tns:Features_DelResult" />
+  <xs:complexType name="Features_ByIdResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="APPROVE_DT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="AUTH_STATUS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CHECKER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CONTENTS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATE_DT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EDITOR_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EDIT_DT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FEA_TYPE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="LEVEL" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="MAKER_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RECORD_STATUS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RESOURCE" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Features_ByIdResult" nillable="true" type="tns:Features_ByIdResult" />
+  <xs:complexType name="ArrayOfFeatures_SearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Features_SearchResult" nillable="true" type="tns:Features_SearchResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFeatures_SearchResult" nillable="true" type="tns:ArrayOfFeatures_SearchResult" />
+</xs:schema>

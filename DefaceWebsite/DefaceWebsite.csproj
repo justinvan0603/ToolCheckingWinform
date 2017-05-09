@@ -1,0 +1,506 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A1D1FA32-B188-44D9-AF7E-FEB621A7F329}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DefaceWebsite</RootNamespace>
+    <AssemblyName>DefaceWebsite</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon app.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Geckofx-Core">
+      <HintPath>..\..\gAuto\lib\Geckofx-Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Geckofx-Winforms">
+      <HintPath>..\..\gAuto\lib\Geckofx-Winforms.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.IWshRuntimeLibrary">
+      <HintPath>..\Interop.IWshRuntimeLibrary.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.Shell32">
+      <HintPath>..\Interop.Shell32.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="WebsitesScreenshot">
+      <HintPath>..\..\..\..\Websites_Screenshot_DLL\WebsitesScreenshot.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddDomain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddDomain.Designer.cs">
+      <DependentUpon>AddDomain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AutoTimer\AutoCheckingDomain.cs" />
+    <Compile Include="AutoTimer\AutoCreateScheduleTimer.cs" />
+    <Compile Include="AutoTimer\ProcessChecking.cs" />
+    <Compile Include="Class\ComparingImages.cs" />
+    <Compile Include="Class\MessageObject.cs" />
+    <Compile Include="CompareImage.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddFeature.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddFeature.Designer.cs">
+      <DependentUpon>frmAddFeature.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddUser.Designer.cs">
+      <DependentUpon>frmAddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCompareImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCompareImage.Designer.cs">
+      <DependentUpon>frmCompareImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDomainOption.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDomainOption.Designer.cs">
+      <DependentUpon>frmDomainOption.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDomainLink.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDomainLink.Designer.cs">
+      <DependentUpon>frmDomainLink.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListDomain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListDomain.Designer.cs">
+      <DependentUpon>frmListDomain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListFeature.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListFeature.Designer.cs">
+      <DependentUpon>frmListFeature.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLstUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLstUsers.Designer.cs">
+      <DependentUpon>frmLstUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDomainUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDomainUser.Designer.cs">
+      <DependentUpon>frmDomainUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOptions.Designer.cs">
+      <DependentUpon>frmOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTestSendNotify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTestSendNotify.Designer.cs">
+      <DependentUpon>frmTestSendNotify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUserDT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUserDT.Designer.cs">
+      <DependentUpon>frmUserDT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImageComparer.cs" />
+    <Compile Include="ImageItem.cs" />
+    <Compile Include="Items\TLastSche.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Items\TLastSche.Designer.cs">
+      <DependentUpon>TLastSche.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Items\TNewUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Items\TNewUser.Designer.cs">
+      <DependentUpon>TNewUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Items\TSchedule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Items\TSchedule.Designer.cs">
+      <DependentUpon>TSchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Process.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Process.Designer.cs">
+      <DependentUpon>Process.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Schedule.Designer.cs">
+      <DependentUpon>Schedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule_Detail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Schedule_Detail.Designer.cs">
+      <DependentUpon>Schedule_Detail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SendEmail.cs" />
+    <Compile Include="Service References\DFWService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="StaticClass.cs" />
+    <Compile Include="Items\TProcess.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Items\TProcess.Designer.cs">
+      <DependentUpon>TProcess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users.Designer.cs">
+      <DependentUpon>Users.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddDomain.resx">
+      <DependentUpon>AddDomain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddFeature.resx">
+      <DependentUpon>frmAddFeature.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddUser.resx">
+      <DependentUpon>frmAddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCompareImage.resx">
+      <DependentUpon>frmCompareImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDomainOption.resx">
+      <DependentUpon>frmDomainOption.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDomainLink.resx">
+      <DependentUpon>frmDomainLink.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListDomain.resx">
+      <DependentUpon>frmListDomain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListFeature.resx">
+      <DependentUpon>frmListFeature.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLstUsers.resx">
+      <DependentUpon>frmLstUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDomainUser.resx">
+      <DependentUpon>frmDomainUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOptions.resx">
+      <DependentUpon>frmOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTestSendNotify.resx">
+      <DependentUpon>frmTestSendNotify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUserDT.resx">
+      <DependentUpon>frmUserDT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Items\TLastSche.resx">
+      <DependentUpon>TLastSche.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Items\TNewUser.resx">
+      <DependentUpon>TNewUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Items\TSchedule.resx">
+      <DependentUpon>TSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Process.resx">
+      <DependentUpon>Process.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Schedule.resx">
+      <DependentUpon>Schedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Items\TProcess.resx">
+      <DependentUpon>TProcess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Schedule_Detail.resx">
+      <DependentUpon>Schedule_Detail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users.resx">
+      <DependentUpon>Users.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Service References\DFWService\DefaceWebsite.DFWService.Configtype_ByUserResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DFWService\DefaceWebsite.DFWService.DomainChange_InsResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DFWService\DefaceWebsite.DFWService.DomainChange_SearchResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DFWService\DefaceWebsite.DFWService.DomainProfile_InsResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DFWService\DefaceWebsite.DFWService.DomainProfile_SearchResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DFWService\DefaceWebsite.DFWService.Features_ByIdResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DFWService\DefaceWebsite.DFWService.Features_DelResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DFWService\DefaceWebsite.DFWService.Features_InsResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DFWService\DefaceWebsite.DFWService.Features_SearchResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DFWService\DefaceWebsite.DFWService.Features_UpdResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DFWService\DefaceWebsite.DFWService.Listdomain_ByIdResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DFWService\DefaceWebsite.DFWService.Listdomain_DelResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DFWService\DefaceWebsite.DFWService.Listdomain_InsResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DFWService\DefaceWebsite.DFWService.Listdomain_SearchResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DFWService\DefaceWebsite.DFWService.Listdomain_UpdResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DFWService\DefaceWebsite.DFWService.Messages_ByIdResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DFWService\DefaceWebsite.DFWService.Messages_InsResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DFWService\DefaceWebsite.DFWService.Messages_NotifyInsResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DFWService\DefaceWebsite.DFWService.Messages_ReadResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DFWService\DefaceWebsite.DFWService.Messages_SearchResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DFWService\DefaceWebsite.DFWService.Messages_UpdFBIDResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DFWService\DefaceWebsite.DFWService.Optionlinks_SearchResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DFWService\DefaceWebsite.DFWService.Optionsuser_SearchResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DFWService\DefaceWebsite.DFWService.Options_UpdResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DFWService\DefaceWebsite.DFWService.Option_SearchResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DFWService\DefaceWebsite.DFWService.ScheduleDt_UpdExecuteResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DFWService\DefaceWebsite.DFWService.Schedules_CalResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DFWService\DefaceWebsite.DFWService.Schedules_DTResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DFWService\DefaceWebsite.DFWService.Schedules_GetByDateResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DFWService\DefaceWebsite.DFWService.Schedules_GetLastResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DFWService\DefaceWebsite.DFWService.Schedules_SearchResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DFWService\DefaceWebsite.DFWService.Userconfig_UpdResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DFWService\DefaceWebsite.DFWService.Userdomain_SearchResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DFWService\DefaceWebsite.DFWService.Users_ByIdResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DFWService\DefaceWebsite.DFWService.Users_ByParentResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DFWService\DefaceWebsite.DFWService.Users_CheckLoginResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DFWService\DefaceWebsite.DFWService.Users_DelResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DFWService\DefaceWebsite.DFWService.Users_InsResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DFWService\DefaceWebsite.DFWService.Users_SearchResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DFWService\DefaceWebsite.DFWService.Users_UpdResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\approve-icon.png" />
+    <None Include="Resources\edit.png" />
+    <None Include="Service References\DFWService\DFWService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DFWService\DFWService1.wsdl" />
+    <None Include="Service References\DFWService\DFWService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DFWService\DFWService31.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DFWService\DFWService32.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DFWService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\DFWService\configuration.svcinfo" />
+    <None Include="Service References\DFWService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\DFWService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deletered.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DFWService\DFWService1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon app.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,826 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://27.0.12.24:7217/Services/DFWService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" />
+  <xs:element name="Users_Ins">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="USERNAME" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FULLNAME" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PASSWORD" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EMAIL" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PHONE" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="PARENT_ID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DESCRIPTION" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="RECORD_STATUS" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AUTH_STATUS" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CREATE_DT" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="APPROVE_DT" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EDIT_DT" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="MAKER_ID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CHECKER_ID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EDITOR_ID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="xmlDOMAIN" nillable="true">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:any minOccurs="0" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Users_InsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Users_InsResult" nillable="true" type="q1:Users_InsResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Users_Ins_A">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="USERNAME" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FULLNAME" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PASSWORD" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EMAIL" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PHONE" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="PARENT_ID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DESCRIPTION" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="RECORD_STATUS" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AUTH_STATUS" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CREATE_DT" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="APPROVE_DT" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EDIT_DT" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="MAKER_ID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CHECKER_ID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EDITOR_ID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DOMAIN" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Users_Ins_AResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Users_Ins_AResult" nillable="true" type="q2:Users_InsResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Users_Upd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="USERNAME" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FULLNAME" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PASSWORD" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EMAIL" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PHONE" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="PARENT_ID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DESCRIPTION" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="RECORD_STATUS" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AUTH_STATUS" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CREATE_DT" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="APPROVE_DT" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EDIT_DT" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="MAKER_ID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CHECKER_ID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EDITOR_ID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DOMAIN" nillable="true">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:any minOccurs="0" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="isEditDetail" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Users_UpdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Users_UpdResult" nillable="true" type="q3:Users_UpdResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Users_Upd_A">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="USERNAME" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FULLNAME" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PASSWORD" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EMAIL" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PHONE" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="PARENT_ID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DESCRIPTION" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="RECORD_STATUS" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AUTH_STATUS" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CREATE_DT" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="APPROVE_DT" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EDIT_DT" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="MAKER_ID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CHECKER_ID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EDITOR_ID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="xmlDOMAIN" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="isEditDetail" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Users_Upd_AResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Users_Upd_AResult" nillable="true" type="q4:Users_UpdResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Users_Del">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Users_DelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Users_DelResult" nillable="true" type="q5:Users_DelResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Users_CheckLogin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="USERNAME" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PASSWORD" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="APPTOKEN" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Users_CheckLoginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Users_CheckLoginResult" nillable="true" type="q6:Users_CheckLoginResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Users_ById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="USERNAME" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="USERID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Users_ByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Users_ByIdResult" nillable="true" type="q7:Users_ByIdResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Users_Search">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="data" nillable="true" type="q8:Users_SearchResult" />
+        <xs:element minOccurs="0" name="top" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Users_SearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Users_SearchResult" nillable="true" type="q9:ArrayOfUsers_SearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Userdomain_Search">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="domain" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Userdomain_SearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Userdomain_SearchResult" nillable="true" type="q10:ArrayOfUserdomain_SearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Users_ByParent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Users_ByParentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Users_ByParentResult" nillable="true" type="q11:ArrayOfUsers_ByParentResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Messages_Search">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="domain" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Messages_SearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Messages_SearchResult" nillable="true" type="q12:ArrayOfMessages_SearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Messages_Read">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="messageId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Messages_ReadResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Messages_ReadResult" nillable="true" type="q13:Messages_ReadResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Messages_Ins">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="content" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="domain" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="createDate" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Messages_InsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Messages_InsResult" nillable="true" type="q14:Messages_InsResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Messages_NotifyIns">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="content" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="domain" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="link" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="createDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="keyTerm" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="icon" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Messages_NotifyInsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Messages_NotifyInsResult" nillable="true" type="q15:ArrayOfMessages_NotifyInsResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Messages_ById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="messageId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Messages_ByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Messages_ByIdResult" nillable="true" type="q16:Messages_ByIdResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Messages_UpdFBID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="messageId" type="xs:int" />
+        <xs:element minOccurs="0" name="firebaseId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Messages_UpdFBIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Messages_UpdFBIDResult" nillable="true" type="q17:Messages_UpdFBIDResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Listdomain_Search">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="domain" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="createDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="recordStatus" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Listdomain_SearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Listdomain_SearchResult" nillable="true" type="q18:ArrayOfListdomain_SearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Listdomain_ById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Listdomain_ByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Listdomain_ByIdResult" nillable="true" type="q19:Listdomain_ByIdResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Listdomain_Ins">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="data" nillable="true" type="q20:Listdomain_SearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Listdomain_InsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Listdomain_InsResult" nillable="true" type="q21:Listdomain_InsResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Listdomain_Upd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="data" nillable="true" type="q22:Listdomain_SearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Listdomain_UpdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Listdomain_UpdResult" nillable="true" type="q23:Listdomain_UpdResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Listdomain_Del">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Listdomain_DelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Listdomain_DelResult" nillable="true" type="q24:Listdomain_DelResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Configtype_ByUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Configtype_ByUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Configtype_ByUserResult" nillable="true" type="q25:ArrayOfConfigtype_ByUserResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Userconfig_Upd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lstConfig" nillable="true">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:any minOccurs="0" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Userconfig_UpdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Userconfig_UpdResult" nillable="true" type="q26:Userconfig_UpdResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Userconfig_Upd_A">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lstConfig" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Userconfig_Upd_AResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Userconfig_Upd_AResult" nillable="true" type="q27:Userconfig_UpdResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DomainChange_Ins">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="data" nillable="true" type="q28:DomainChange_SearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DomainChange_InsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="DomainChange_InsResult" nillable="true" type="q29:DomainChange_InsResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DomainChange_Search">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="data" nillable="true" type="q30:DomainChange_SearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DomainChange_SearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="DomainChange_SearchResult" nillable="true" type="q31:ArrayOfDomainChange_SearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DomainProfile_Ins">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="data" nillable="true" type="q32:DomainProfile_SearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DomainProfile_InsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="DomainProfile_InsResult" nillable="true" type="q33:DomainProfile_InsResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DomainProfile_Search">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="data" nillable="true" type="q34:DomainProfile_SearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DomainProfile_SearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="DomainProfile_SearchResult" nillable="true" type="q35:ArrayOfDomainProfile_SearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Schedules_Cal">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="date" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="createDate" nillable="true" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Schedules_CalResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Schedules_CalResult" nillable="true" type="q36:Schedules_CalResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Schedules_GetByDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Schedules_GetByDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Schedules_GetByDateResult" nillable="true" type="q37:ArrayOfSchedules_GetByDateResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Schedules_GetLast">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="top" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Schedules_GetLastResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Schedules_GetLastResult" nillable="true" type="q38:ArrayOfSchedules_GetLastResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Schedules_DT">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="term" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Schedules_DTResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Schedules_DTResult" nillable="true" type="q39:ArrayOfSchedules_DTResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Schedules_Search">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="data" nillable="true" type="q40:Schedules_SearchResult" />
+        <xs:element minOccurs="0" name="top" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Schedules_SearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Schedules_SearchResult" nillable="true" type="q41:ArrayOfSchedules_SearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ScheduleDt_UpdExecute">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="term" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="linkid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ScheduleDt_UpdExecuteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="ScheduleDt_UpdExecuteResult" nillable="true" type="q42:ScheduleDt_UpdExecuteResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Options_Upd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="data" nillable="true" type="q43:Option_SearchResult" />
+        <xs:element minOccurs="0" name="lstUser" nillable="true">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:any minOccurs="0" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="isEditUser" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lstLink" nillable="true">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:any minOccurs="0" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="isEditLink" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Options_UpdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Options_UpdResult" nillable="true" type="q44:Options_UpdResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Options_Upd_A">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="data" nillable="true" type="q45:Option_SearchResult" />
+        <xs:element minOccurs="0" name="xmlUser" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="isEditUser" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="xmlLink" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="isEditLink" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Options_Upd_AResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Options_Upd_AResult" nillable="true" type="q46:Options_UpdResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Option_Search">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="data" nillable="true" type="q47:Option_SearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Option_SearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Option_SearchResult" nillable="true" type="q48:ArrayOfOption_SearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Optionlinks_Search">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Domain" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Optionlinks_SearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Optionlinks_SearchResult" nillable="true" type="q49:ArrayOfOptionlinks_SearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Optionsuser_Search">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Domain" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="User" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Optionsuser_SearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Optionsuser_SearchResult" nillable="true" type="q50:ArrayOfOptionsuser_SearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Features_Ins">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="data" nillable="true" type="q51:Features_SearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Features_InsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Features_InsResult" nillable="true" type="q52:Features_InsResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Features_Ins_A">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="FEA_TYPE" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CONTENTS" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="LEVEL" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="RESOURCE" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="RECORD_STATUS" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AUTH_STATUS" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="APPROVE_DT" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="EDIT_DT" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="CHECKER_ID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EDITOR_ID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CREATE_DT" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="MAKER_ID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Features_Ins_AResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Features_Ins_AResult" nillable="true" type="q53:Features_InsResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Features_Upd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="data" nillable="true" type="q54:Features_SearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Features_UpdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Features_UpdResult" nillable="true" type="q55:Features_UpdResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Features_Upd_A">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ID" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="FEA_TYPE" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CONTENTS" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="LEVEL" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="RESOURCE" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="RECORD_STATUS" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AUTH_STATUS" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="APPROVE_DT" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="EDIT_DT" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="CHECKER_ID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EDITOR_ID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CREATE_DT" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="MAKER_ID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Features_Upd_AResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Features_Upd_AResult" nillable="true" type="q56:Features_UpdResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Features_Del">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Features_DelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Features_DelResult" nillable="true" type="q57:Features_DelResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Features_ById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Features_ByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Features_ByIdResult" nillable="true" type="q58:Features_ByIdResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Features_Search">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="data" nillable="true" type="q59:Features_SearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Features_SearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Features_SearchResult" nillable="true" type="q60:ArrayOfFeatures_SearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Features_Search_A">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="FEA_TYPE" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CONTENTS" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="LEVEL" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="RESOURCE" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="RECORD_STATUS" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AUTH_STATUS" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Features_Search_AResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/DefaceWebService.Services" minOccurs="0" name="Features_Search_AResult" nillable="true" type="q61:ArrayOfFeatures_SearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
