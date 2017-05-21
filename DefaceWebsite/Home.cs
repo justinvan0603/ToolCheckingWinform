@@ -15,12 +15,22 @@ namespace DefaceWebsite
 {
     public partial class Home : Form
     {
+        private System.Windows.Forms.ContextMenuStrip notifyContextMenuStrip;
         private readonly string filename = "config.sys";
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         private bool _isAutoChecking;
         public Home()
         {
             InitializeComponent();
+            this.ShowInTaskbar = true;
+
+            this.notifyContextMenuStrip = new ContextMenuStrip();
+            this.notifyContextMenuStrip.Items.Add("Thoát", null, notifyIconContextMenuStripItem_Click);
+            this.notifyIconSysTray.ContextMenuStrip = this.notifyContextMenuStrip;
+        }
+        private void notifyIconContextMenuStripItem_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
         }
         private void LoadAppConfig()
         {
@@ -33,6 +43,7 @@ namespace DefaceWebsite
                     string[] lst = line.Split(';');
                     StaticClass.LimitLink = int.Parse(lst[0]);
                     this._isAutoChecking = lst[1] == "A" ? true : false;//a- auto; c-customer
+              
                 }
             }
             catch (Exception ex)
@@ -43,12 +54,17 @@ namespace DefaceWebsite
         private void Home_Load(object sender, EventArgs e)
         {
             this.LoadAppConfig();
+            
             //log.Info("Home_Load--Khoi dong man hinh chinh");
             //log.Info("Khoi dong Lap lich tu dong cho ngay ke tiep");
 
-
+            //AutoCreateScheduleTimer timer = new AutoCreateScheduleTimer();
+            //timer.InitSchedule();
+            //AutoCreateScheduleTimer timer = new AutoCreateScheduleTimer();
+            //timer.InitSchedule();
             if (this._isAutoChecking)
             {
+                this.lblRunMode.Text = "Đang bật chế độ tự động lập lịch và kiểm tra";
                 AutoCreateScheduleTimer timer = new AutoCreateScheduleTimer();
                 timer.InitSchedule();
                 StaticClass.isAutoMode = true;
@@ -58,6 +74,7 @@ namespace DefaceWebsite
             }
             else
             {
+                this.lblRunMode.Text = "Chương trình đang chạy ở chế độ thủ công";
                 StaticClass.isAutoMode = false;
             }
             this.grpToday.Text = "Lịch thực hiện hôm nay " + DateTime.Now.ToString(StaticClass.formatShortDate);
@@ -233,7 +250,41 @@ namespace DefaceWebsite
         private void OptionsToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frmOptions frm = new frmOptions();
-            frm.ShowDialog();
+            DialogResult dresult = frm.ShowDialog();
+            if(dresult == DialogResult.OK)
+            {
+                this.LoadAppConfig();
+                if(this._isAutoChecking)
+                {
+                    this.lblRunMode.Text = "Đang bật chế độ tự động lập lịch và kiểm tra";
+                }
+                else
+                {
+                    this.lblRunMode.Text = "Chương trình đang chạy ở chế độ thủ công";
+                }
+            }
+        }
+
+        private void Home_Resize(object sender, EventArgs e)
+        {
+            //this.notifyIconSysTray.BalloonTipTitle = "Tool-checking Website";
+            //this.notifyIconSysTray.BalloonTipText = "Click vào icon để hiển thị lại";
+            if (FormWindowState.Minimized == this.WindowState)
+            {
+                this.notifyIconSysTray.Visible = true;
+                //this.notifyIconSysTray.ShowBalloonTip(500);
+                this.Hide();
+            }
+            else if (FormWindowState.Normal == this.WindowState)
+            {
+                this.notifyIconSysTray.Visible = false;
+            }
+        }
+
+        private void notifyIconSysTray_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.Show();
+            this.WindowState = FormWindowState.Normal;
         }
 
 

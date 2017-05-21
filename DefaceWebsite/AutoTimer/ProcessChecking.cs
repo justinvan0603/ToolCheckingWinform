@@ -141,6 +141,7 @@ namespace DefaceWebsite.AutoTimer
                                     break;
                                 }
                             }
+                            log.Info("InitNewTermProcess-Khởi động đợt mới thành công");
                             //Schedules_GetByDateResult[] searchcurrentTerm = currentDateSchedule.Where(sc => sc.EVENT_TIME.Value >= DateTime.Now.TimeOfDay).OrderBy(sc => sc.EVENT_TIME).ToArray();
                             //if (searchcurrentTerm != null)
                             //{
@@ -155,6 +156,7 @@ namespace DefaceWebsite.AutoTimer
                 }
                 else
                 {
+                    
                     Schedules_GetByDateResult[] searchcurrentTerm = scheduleResult.Where(sc => sc.EVENT_TIME.Value >= DateTime.Now.TimeOfDay).OrderBy(sc => sc.EVENT_TIME).ToArray();
                     //if (searchcurrentTerm != null)
                     //{
@@ -164,15 +166,18 @@ namespace DefaceWebsite.AutoTimer
                     //        DivideProcess(listExecuteLink, searchcurrentTerm[0]);
                     //    }
                     //}
-                    foreach (var item in searchcurrentTerm)
+                    if (searchcurrentTerm != null)
                     {
-                        Schedules_DTResult[] listExecuteLink = client.Schedules_DT(item.SCH_DATE.Value, item.SCH_TERM);
-                        if (listExecuteLink != null && listExecuteLink.Count() > 0)
+                        foreach (var item in searchcurrentTerm)
                         {
-                            log.Info("Số link: " + listExecuteLink.Count().ToString() +  " Đợt chạy: " +item.SCH_TERM.ToString());
-                            this.DivideProcess(listExecuteLink, item);
-                            log.Info("InitNewTermProcess-Khởi động đợt mới thành công");
-                            break;
+                            Schedules_DTResult[] listExecuteLink = client.Schedules_DT(item.SCH_DATE.Value, item.SCH_TERM);
+                            if (listExecuteLink != null && listExecuteLink.Count() > 0)
+                            {
+                                log.Info("Số link: " + listExecuteLink.Count().ToString() + " Đợt chạy: " + item.SCH_TERM.ToString());
+                                this.DivideProcess(listExecuteLink, item);
+                                log.Info("InitNewTermProcess-Khởi động đợt mới thành công");
+                                break;
+                            }
                         }
                     }
                 }

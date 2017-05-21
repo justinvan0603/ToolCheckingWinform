@@ -56,6 +56,8 @@
             this.pnLstUser = new System.Windows.Forms.Panel();
             this.lblcurrentTime = new System.Windows.Forms.Label();
             this.tmCurrentTime = new System.Windows.Forms.Timer(this.components);
+            this.notifyIconSysTray = new System.Windows.Forms.NotifyIcon(this.components);
+            this.lblRunMode = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.grpToday.SuspendLayout();
@@ -91,14 +93,14 @@
             // scheduleToolStripMenuItem
             // 
             this.scheduleToolStripMenuItem.Name = "scheduleToolStripMenuItem";
-            this.scheduleToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.scheduleToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.scheduleToolStripMenuItem.Text = "Lập lịch";
             this.scheduleToolStripMenuItem.Click += new System.EventHandler(this.scheduleToolStripMenuItem_Click);
             // 
             // processToolStripMenuItem
             // 
             this.processToolStripMenuItem.Name = "processToolStripMenuItem";
-            this.processToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.processToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.processToolStripMenuItem.Text = "Tiến trình";
             this.processToolStripMenuItem.Click += new System.EventHandler(this.processToolStripMenuItem_Click);
             // 
@@ -283,11 +285,28 @@
             this.tmCurrentTime.Enabled = true;
             this.tmCurrentTime.Interval = 1000;
             // 
+            // notifyIconSysTray
+            // 
+            this.notifyIconSysTray.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIconSysTray.Icon")));
+            this.notifyIconSysTray.Text = "notifyIcon1";
+            this.notifyIconSysTray.Visible = true;
+            this.notifyIconSysTray.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIconSysTray_MouseDoubleClick);
+            // 
+            // lblRunMode
+            // 
+            this.lblRunMode.AutoSize = true;
+            this.lblRunMode.Location = new System.Drawing.Point(27, 414);
+            this.lblRunMode.Name = "lblRunMode";
+            this.lblRunMode.Size = new System.Drawing.Size(35, 13);
+            this.lblRunMode.TabIndex = 4;
+            this.lblRunMode.Text = "label1";
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(873, 436);
+            this.Controls.Add(this.lblRunMode);
             this.Controls.Add(this.lblcurrentTime);
             this.Controls.Add(this.grpToday);
             this.Controls.Add(this.groupBox4);
@@ -299,6 +318,7 @@
             this.Name = "Home";
             this.Text = "Home";
             this.Load += new System.EventHandler(this.Home_Load);
+            this.Resize += new System.EventHandler(this.Home_Resize);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -338,5 +358,7 @@
         private System.Windows.Forms.Panel pnLstUser;
         private System.Windows.Forms.Panel pnSchedule;
         private System.Windows.Forms.Panel pnlstDomain;
+        private System.Windows.Forms.NotifyIcon notifyIconSysTray;
+        private System.Windows.Forms.Label lblRunMode;
     }
 }

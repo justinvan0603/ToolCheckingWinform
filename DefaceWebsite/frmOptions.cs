@@ -47,14 +47,17 @@ namespace DefaceWebsite
                 {
                     if (this.rbtAuto.Checked)
                     {
-                        StaticClass.isAutoMode = true;
-                        if (!StaticClass.isAutoRunning)
+                        if (StaticClass.isAutoMode == false)
                         {
-                            AutoCreateScheduleTimer timer = new AutoCreateScheduleTimer();
-                            timer.InitSchedule();
-                            AutoCheckingDomain autoCheckDomain = new AutoCheckingDomain();
-                            autoCheckDomain.InitAutoChecking();
-                            log.Info("Đã bật chế độ lập lịch và kiểm tra tự động");
+                            StaticClass.isAutoMode = true;
+                            if (!StaticClass.isAutoRunning)
+                            {
+                                AutoCreateScheduleTimer timer = new AutoCreateScheduleTimer();
+                                timer.InitSchedule();
+                                AutoCheckingDomain autoCheckDomain = new AutoCheckingDomain();
+                                autoCheckDomain.InitAutoChecking();
+                                log.Info("Đã bật chế độ lập lịch và kiểm tra tự động");
+                            }
                         }
                     }
                     else

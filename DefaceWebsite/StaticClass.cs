@@ -16,6 +16,7 @@ namespace DefaceWebsite
 
     public static class StaticClass
     {
+        //public static bool isAutoCheckingTimerSet = false;
         //Che do chay tu dong co bat khong
         public static bool isAutoMode = false;
         //Co Auto Process nao dang chay khong

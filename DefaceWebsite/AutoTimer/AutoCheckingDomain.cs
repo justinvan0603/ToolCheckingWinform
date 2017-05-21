@@ -52,13 +52,16 @@ namespace DefaceWebsite.AutoTimer
                             //        DivideProcess(listExecuteLink, searchcurrentTerm[0]);
                             //    }
                             //}
-                            foreach (var item in searchcurrentTerm)
+                            if (searchcurrentTerm != null)
                             {
-                                Schedules_DTResult[] listExecuteLink = client.Schedules_DT(item.SCH_DATE.Value, item.SCH_TERM);
-                                if (listExecuteLink != null && listExecuteLink.Count() > 0)
+                                foreach (var item in searchcurrentTerm)
                                 {
-                                    this.DivideProcess(listExecuteLink, item);
-                                    break;
+                                    Schedules_DTResult[] listExecuteLink = client.Schedules_DT(item.SCH_DATE.Value, item.SCH_TERM);
+                                    if (listExecuteLink != null && listExecuteLink.Count() > 0)
+                                    {
+                                        this.DivideProcess(listExecuteLink, item);
+                                        break;
+                                    }
                                 }
                             }
                         }
@@ -154,6 +157,7 @@ namespace DefaceWebsite.AutoTimer
             
             processTimer.Elapsed += new ElapsedEventHandler(ExecuteChecking);
             processTimer.Start();
+            
             log.Info("AutoCheckingDomain.DivideProcess - Khởi động Timer");
         }
         private void ExecuteChecking(object source, ElapsedEventArgs e)

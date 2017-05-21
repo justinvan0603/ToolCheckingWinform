@@ -41,7 +41,7 @@ namespace DefaceWebsite.AutoTimer
             }
             System.Timers.Timer timer = new System.Timers.Timer(timespan.TotalMilliseconds);
             timer.Enabled = true;
-
+            timer.AutoReset = true;
             timer.Elapsed += new ElapsedEventHandler(Schedule);
             timer.Start();
             log.Info("Đã hẹn giờ lập lịch cho ngày kế tiếp lúc 23:40:00");
@@ -94,9 +94,15 @@ namespace DefaceWebsite.AutoTimer
                 }
                 pro++;
             }
+            //int day = DateTime.Now.Day;
+            var x = DateTime.Now.AddDays(1);
+            
+            x = x.Date + currentTerm.EVENT_TIME.Value;
+            var a = x.Subtract(DateTime.Now).TotalMilliseconds;
+            log.Info("Gia tri thoi gian cai dat tu chay ngay tiep theo - " + TimeSpan.FromMilliseconds(a));
+            //var timeSpan = currentTerm.EVENT_TIME.Value.TotalMilliseconds - DateTime.Now.TimeOfDay.TotalMilliseconds;
 
-            var timeSpan = currentTerm.EVENT_TIME.Value.TotalMilliseconds - DateTime.Now.TimeOfDay.TotalMilliseconds;
-            System.Timers.Timer processTimer = new System.Timers.Timer(timeSpan);
+            System.Timers.Timer processTimer = new System.Timers.Timer(a);
             processTimer.AutoReset = false;
             processTimer.Elapsed += new ElapsedEventHandler(ExecuteChecking);
             processTimer.Start();
@@ -135,19 +141,15 @@ namespace DefaceWebsite.AutoTimer
                     Schedules_CalResult data = client.Schedules_Cal(DateTime.Now.AddDays(1).ToString(StaticClass.formatShortDate), "thieuvq", DateTime.Now);
                     if (data.Result.Equals("0"))
                     {
+                        log.Info("Lập lịch tự động cho ngày tiếp theo thành công");
+                        log.Info("Khởi tạo kiểm tra tự động");
                         Schedules_GetByDateResult[] scheduleResult = client.Schedules_GetByDate(DateTime.Now.AddDays(1));
-                        Schedules_GetByDateResult[] searchcurrentTerm = scheduleResult.Where(sc => sc.EVENT_TIME.Value >= DateTime.Now.TimeOfDay).OrderBy(sc => sc.EVENT_TIME).ToArray();
-                        
-                        //Schedules_DTResult[] listExecuteLink = client.Schedules_DT(DateTime.Now.AddDays(1), searchcurrentTerm[0].SCH_TERM);
-                        //if (listExecuteLink != null)
-                        //{
-                        //    if(StaticClass.isAutoMode)
-                        //        DivideProcess(listExecuteLink, searchcurrentTerm[0]);
-                        //}
+                        //Schedules_GetByDateResult[] searchcurrentTerm = scheduleResult.Where(sc => sc.EVENT_TIME.Value >= DateTime.Now.TimeOfDay).OrderBy(sc => sc.EVENT_TIME).ToArray();
+                        Schedules_GetByDateResult[] searchcurrentTerm = scheduleResult.OrderBy(sc => sc.EVENT_TIME).ToArray();
                         foreach (var item in searchcurrentTerm)
                         {
                             Schedules_DTResult[] listExecuteLink = client.Schedules_DT(item.SCH_DATE.Value, item.SCH_TERM);
-                            if (listExecuteLink != null && listExecuteLink.Count() > 0)
+                            if (listExecuteLink != null && listExecuteLink.Count() > 0 && !StaticClass.isAutoRunning)
                             {
                                 this.DivideProcess(listExecuteLink, item);
                                 break;
@@ -157,6 +159,22 @@ namespace DefaceWebsite.AutoTimer
                     else
                     {
                         log.Error("Lỗi khi lập lịch - " + data.ErrorDesc);
+                        if(StaticClass.isAutoMode == true && StaticClass.isAutoRunning == false)
+                        {
+                            log.Info("Khởi tạo kiểm tra tự động");
+                            Schedules_GetByDateResult[] scheduleResult = client.Schedules_GetByDate(DateTime.Now.AddDays(1));
+                            //Schedules_GetByDateResult[] searchcurrentTerm = scheduleResult.Where(sc => sc.EVENT_TIME.Value >= DateTime.Now.TimeOfDay).OrderBy(sc => sc.EVENT_TIME).ToArray();
+                            Schedules_GetByDateResult[] searchcurrentTerm = scheduleResult.OrderBy(sc => sc.EVENT_TIME).ToArray();
+                            foreach (var item in searchcurrentTerm)
+                            {
+                                Schedules_DTResult[] listExecuteLink = client.Schedules_DT(item.SCH_DATE.Value, item.SCH_TERM);
+                                if (listExecuteLink != null && listExecuteLink.Count() > 0 && !StaticClass.isAutoRunning)
+                                {
+                                    this.DivideProcess(listExecuteLink, item);
+                                    break;
+                                }
+                            }
+                        }
                     }        
             }
             catch (Exception ex)

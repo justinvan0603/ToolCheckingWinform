@@ -141,6 +141,11 @@ namespace DefaceWebsite
 
         private void btnDoSchedule_Click(object sender, EventArgs e)
         {
+            if(StaticClass.isAutoMode == true)
+            {
+                MessageBox.Show("Không thể lập lịch do đang bật chế độ tự động!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             ScheduleClient client = null;
             try
             {
