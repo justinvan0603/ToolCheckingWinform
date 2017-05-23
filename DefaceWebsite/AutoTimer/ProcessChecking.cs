@@ -78,8 +78,20 @@ namespace DefaceWebsite.AutoTimer
                 }
                 finally
                 {
-                    if (client != null)
-                        client.Close();
+                    try
+                    {
+                        if (client != null)
+                        {
+                            client.Close();
+                            log.Info("Đóng kết nối WCF - trạng thái WCF Client: " + client.State);
+                        }
+                    }
+                    catch(Exception ex)
+                    {
+                        log.Error("Lỗi khi đóng kết nối WCF " + ex.Message);
+                        client.Abort();
+                        log.Info("Trạng thái WCF Client: " + client.State);
+                    }
                 }
                // if (this.prcProcess.InvokeRequired)
                 //{
@@ -141,6 +153,7 @@ namespace DefaceWebsite.AutoTimer
                                     break;
                                 }
                             }
+
                             log.Info("InitNewTermProcess-Khởi động đợt mới thành công");
                             //Schedules_GetByDateResult[] searchcurrentTerm = currentDateSchedule.Where(sc => sc.EVENT_TIME.Value >= DateTime.Now.TimeOfDay).OrderBy(sc => sc.EVENT_TIME).ToArray();
                             //if (searchcurrentTerm != null)
@@ -156,7 +169,6 @@ namespace DefaceWebsite.AutoTimer
                 }
                 else
                 {
-                    
                     Schedules_GetByDateResult[] searchcurrentTerm = scheduleResult.Where(sc => sc.EVENT_TIME.Value >= DateTime.Now.TimeOfDay).OrderBy(sc => sc.EVENT_TIME).ToArray();
                     //if (searchcurrentTerm != null)
                     //{
@@ -166,18 +178,15 @@ namespace DefaceWebsite.AutoTimer
                     //        DivideProcess(listExecuteLink, searchcurrentTerm[0]);
                     //    }
                     //}
-                    if (searchcurrentTerm != null)
+                    foreach (var item in searchcurrentTerm)
                     {
-                        foreach (var item in searchcurrentTerm)
+                        Schedules_DTResult[] listExecuteLink = client.Schedules_DT(item.SCH_DATE.Value, item.SCH_TERM);
+                        if (listExecuteLink != null && listExecuteLink.Count() > 0)
                         {
-                            Schedules_DTResult[] listExecuteLink = client.Schedules_DT(item.SCH_DATE.Value, item.SCH_TERM);
-                            if (listExecuteLink != null && listExecuteLink.Count() > 0)
-                            {
-                                log.Info("Số link: " + listExecuteLink.Count().ToString() + " Đợt chạy: " + item.SCH_TERM.ToString());
-                                this.DivideProcess(listExecuteLink, item);
-                                log.Info("InitNewTermProcess-Khởi động đợt mới thành công");
-                                break;
-                            }
+                            log.Info("Số link: " + listExecuteLink.Count().ToString() +  " Đợt chạy: " +item.SCH_TERM.ToString());
+                            this.DivideProcess(listExecuteLink, item);
+                            log.Info("InitNewTermProcess-Khởi động đợt mới thành công");
+                            break;
                         }
                     }
                 }
@@ -188,8 +197,25 @@ namespace DefaceWebsite.AutoTimer
             catch (Exception ex)
             {
                 log.Error("Lỗi ProcessChecking.InitNewProcessTerm- " + ex.Message);
-                if (client != null)
-                    client.Close();
+                //if (client != null)
+                    //client.Close();
+            }
+            finally
+            {
+                try
+                {
+                    if (client != null)
+                    {
+                        client.Close();
+                        log.Info("Đóng kết nối WCF - trạng thái WCF Client: " + client.State);
+                    }
+                }
+                catch(Exception ex)
+                {
+                    log.Error("Lỗi khi đóng kết nối WCF " + ex.Message);
+                    client.Abort();
+                    log.Info("Trạng thái WCF Client: " + client.State);
+                }
             }
         }
         public void DivideProcess(Schedules_DTResult[] listexecutelink, Schedules_GetByDateResult currentTerm)
@@ -244,6 +270,7 @@ namespace DefaceWebsite.AutoTimer
                 processTimer.Elapsed += new ElapsedEventHandler(ExecuteChecking);
                 processTimer.Start();
                 GC.Collect();
+                log.Info("Thời gian bắt đầu kiểm tra là - " + currentTerm.EVENT_TIME);
                 log.Info("ProcessChecking.DivideProcess - Khởi động timer");
             }
             catch(Exception ex)

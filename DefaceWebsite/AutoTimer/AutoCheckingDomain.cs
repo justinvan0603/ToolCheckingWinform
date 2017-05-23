@@ -52,16 +52,13 @@ namespace DefaceWebsite.AutoTimer
                             //        DivideProcess(listExecuteLink, searchcurrentTerm[0]);
                             //    }
                             //}
-                            if (searchcurrentTerm != null)
+                            foreach (var item in searchcurrentTerm)
                             {
-                                foreach (var item in searchcurrentTerm)
+                                Schedules_DTResult[] listExecuteLink = client.Schedules_DT(item.SCH_DATE.Value, item.SCH_TERM);
+                                if (listExecuteLink != null && listExecuteLink.Count() > 0)
                                 {
-                                    Schedules_DTResult[] listExecuteLink = client.Schedules_DT(item.SCH_DATE.Value, item.SCH_TERM);
-                                    if (listExecuteLink != null && listExecuteLink.Count() > 0)
-                                    {
-                                        this.DivideProcess(listExecuteLink, item);
-                                        break;
-                                    }
+                                    this.DivideProcess(listExecuteLink, item);
+                                    break;
                                 }
                             }
                         }
@@ -103,8 +100,35 @@ namespace DefaceWebsite.AutoTimer
             }
             finally
             {
-                if (client != null)
-                    client.Close();
+                try
+                {
+                    if (client != null)
+                    {
+                        client.Close();
+                        log.Info("Đóng kết nối WCF - trạng thái WCF Client: " + client.State);
+                    }
+
+                }
+                catch(Exception ex)
+                {
+                    log.Error("Lỗi khi đóng kết nối WCF " + ex.Message);
+                    client.Abort();
+                    log.Info("Trạng thái WCF Client: " + client.State);
+                    
+                }
+                //if (client != null)
+                //{
+                //    if (client.State == System.ServiceModel.CommunicationState.Faulted)
+                //    {
+                //        client.Abort();
+
+                //    }
+                //    if(client.State == System.ServiceModel.CommunicationState.Opened || client.State == System.ServiceModel.CommunicationState.Opening)
+                //    {
+                //        client.Close();
+                //    }
+                //}
+                    
             }
         }
         public void DivideProcess(Schedules_DTResult[] listexecutelink,Schedules_GetByDateResult currentTerm)
@@ -157,7 +181,7 @@ namespace DefaceWebsite.AutoTimer
             
             processTimer.Elapsed += new ElapsedEventHandler(ExecuteChecking);
             processTimer.Start();
-            
+            log.Info("Thời gian bắt đầu kiểm tra tiếp theo là - " + currentTerm.EVENT_TIME);
             log.Info("AutoCheckingDomain.DivideProcess - Khởi động Timer");
         }
         private void ExecuteChecking(object source, ElapsedEventArgs e)

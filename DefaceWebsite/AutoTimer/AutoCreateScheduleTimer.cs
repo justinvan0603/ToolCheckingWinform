@@ -41,10 +41,10 @@ namespace DefaceWebsite.AutoTimer
             }
             System.Timers.Timer timer = new System.Timers.Timer(timespan.TotalMilliseconds);
             timer.Enabled = true;
-            timer.AutoReset = true;
+            timer.AutoReset = false;
             timer.Elapsed += new ElapsedEventHandler(Schedule);
             timer.Start();
-            log.Info("Đã hẹn giờ lập lịch cho ngày kế tiếp lúc 23:40:00");
+            log.Info("Đã hẹn giờ lập lịch cho ngày kế tiếp lúc 23:40:00 - Ngày: " + targetDate.Date);
         }
         private void Schedule(object source, ElapsedEventArgs e)
         {
@@ -94,18 +94,17 @@ namespace DefaceWebsite.AutoTimer
                 }
                 pro++;
             }
-            //int day = DateTime.Now.Day;
             var x = DateTime.Now.AddDays(1);
-            
+
             x = x.Date + currentTerm.EVENT_TIME.Value;
             var a = x.Subtract(DateTime.Now).TotalMilliseconds;
             log.Info("Gia tri thoi gian cai dat tu chay ngay tiep theo - " + TimeSpan.FromMilliseconds(a));
             //var timeSpan = currentTerm.EVENT_TIME.Value.TotalMilliseconds - DateTime.Now.TimeOfDay.TotalMilliseconds;
-
             System.Timers.Timer processTimer = new System.Timers.Timer(a);
             processTimer.AutoReset = false;
             processTimer.Elapsed += new ElapsedEventHandler(ExecuteChecking);
             processTimer.Start();
+            log.Info("Đợt chạy tiếp theo là - " + currentTerm.EVENT_TIME);
             log.Info("Khởi động timer chạy tự động");
         }
         private void ExecuteChecking(object source, ElapsedEventArgs e)
@@ -175,15 +174,32 @@ namespace DefaceWebsite.AutoTimer
                                 }
                             }
                         }
-                    }        
+                    }
+                    //Khoi tao xong dot cu dat gio cho ngay ke tiep
+                    this.InitSchedule();
             }
             catch (Exception ex)
-            {          
+            {
+                log.Error("Lỗi khi tiến hành lập lịch - " + ex.Message);
             }
             finally
             {
-                if (client != null)
-                    client.Close();
+                try
+                {
+                    if (client != null)
+                    {
+                        client.Close();
+                        log.Info("Đóng kết nối WCF - trạng thái WCF Client: " + client.State);
+                    }
+
+                }
+                catch(Exception ex)
+                {
+                    log.Error("Lỗi khi đóng kết nối WCF " + ex.Message);
+                    client.Abort();
+                    log.Info("Trạng thái WCF Client: " + client.State);
+                }
+                
             }
         }
 
