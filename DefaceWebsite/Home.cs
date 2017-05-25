@@ -54,21 +54,21 @@ namespace DefaceWebsite
         private void Home_Load(object sender, EventArgs e)
         {
             this.LoadAppConfig();
-            
             //log.Info("Home_Load--Khoi dong man hinh chinh");
             //log.Info("Khoi dong Lap lich tu dong cho ngay ke tiep");
 
             //AutoCreateScheduleTimer timer = new AutoCreateScheduleTimer();
             //timer.InitSchedule();
-            //AutoCreateScheduleTimer timer = new AutoCreateScheduleTimer();
-            //timer.InitSchedule();
+
+          // AutoCheckingDomain autoCheck = new AutoCheckingDomain(this.lblRunMode);
+
             if (this._isAutoChecking)
             {
                 this.lblRunMode.Text = "Đang bật chế độ tự động lập lịch và kiểm tra";
-                AutoCreateScheduleTimer timer = new AutoCreateScheduleTimer();
+                AutoCreateScheduleTimer timer = new AutoCreateScheduleTimer(this.lblRunMode);
                 timer.InitSchedule();
                 StaticClass.isAutoMode = true;
-                AutoCheckingDomain autoCheckDomain = new AutoCheckingDomain();
+                AutoCheckingDomain autoCheckDomain = new AutoCheckingDomain(this.lblRunMode);
                 autoCheckDomain.InitAutoChecking();
                 log.Info("Đã cài đặt tự động lập lịch và kiểm tra");
             }
@@ -249,19 +249,16 @@ namespace DefaceWebsite
 
         private void OptionsToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            frmOptions frm = new frmOptions();
+            frmOptions frm = new frmOptions(this.lblRunMode);
             DialogResult dresult = frm.ShowDialog();
             if(dresult == DialogResult.OK)
             {
                 this.LoadAppConfig();
-                if(this._isAutoChecking)
-                {
-                    this.lblRunMode.Text = "Đang bật chế độ tự động lập lịch và kiểm tra";
-                }
-                else
+                if(!this._isAutoChecking)
                 {
                     this.lblRunMode.Text = "Chương trình đang chạy ở chế độ thủ công";
                 }
+
             }
         }
 

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DefaceWebsite.DFWService;
 using System.Timers;
+using System.Windows.Forms;
 namespace DefaceWebsite.AutoTimer
 {
     public class AutoCheckingDomain
@@ -12,10 +13,50 @@ namespace DefaceWebsite.AutoTimer
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         //Thu tu dot dang chay hien tai
        // public static int TERM_ID = 0;
+        private Label _lblRunMode;
         List<ProcessChecking> _listProcess;
         public AutoCheckingDomain()
         {
             _listProcess = new List<ProcessChecking>();
+        }
+        public AutoCheckingDomain(Label lblRunMode)
+        {
+            _listProcess = new List<ProcessChecking>();
+            this._lblRunMode = lblRunMode;
+           // this.SetLabelRunModeText("Set text");
+            //initTimer();
+
+        }
+        //public void initTimer()
+        //{
+
+        //    System.Timers.Timer timer = new System.Timers.Timer(5 * 1000);
+        //    timer.Elapsed += new ElapsedEventHandler(updateLabelEvent);
+        //    timer.Enabled = true;
+        //    timer.AutoReset = false;
+        //    timer.Start();
+        //}
+        //private void updateLabelEvent(object sender, ElapsedEventArgs e)
+        //{
+        //    this.SetLabelRunModeText("Set text in timer");
+        //}
+        delegate void UpdateLabelRunMode(string text);
+        private void SetLabelText(string text)
+        {
+            this._lblRunMode.Text = text;
+        }
+        
+        private void SetLabelRunModeText(string text)
+        {
+            if (this._lblRunMode.InvokeRequired)
+            {
+                this._lblRunMode.BeginInvoke(new UpdateLabelRunMode(SetLabelText), new object[] { text });
+
+            }
+            else
+            {
+                this._lblRunMode.Text = text;
+            }
         }
         public void InitAutoChecking()
         {
@@ -157,9 +198,10 @@ namespace DefaceWebsite.AutoTimer
                     if (count >= limitLink || index >= totalLinks)
                     {
                         //TProcess pr1 = new TProcess();
-                        ProcessChecking prc = new ProcessChecking();
+                        ProcessChecking prc = new ProcessChecking(this._lblRunMode);
                         prc._scheduleDate = listexecutelink[0].SCH_DATE.Value;
                         prc._term = listexecutelink[0].SCH_TERM;
+                        prc._eventTime = currentTerm.EVENT_TIME.Value;
                         prc.totalProcess = totalProcess;
                         prc.SetValue(pro + 1, lstLink, lstLink, (key + index.ToString()));
                         //_listProcess = new List<ProcessChecking>();
@@ -175,19 +217,25 @@ namespace DefaceWebsite.AutoTimer
             }
             
             var timeSpan = currentTerm.EVENT_TIME.Value.TotalMilliseconds - DateTime.Now.TimeOfDay.TotalMilliseconds;
-            Timer processTimer = new Timer(timeSpan);
+            System.Timers.Timer processTimer = new System.Timers.Timer(timeSpan);
            //Timer processTimer = new Timer();
             processTimer.AutoReset = false;
             
             processTimer.Elapsed += new ElapsedEventHandler(ExecuteChecking);
             processTimer.Start();
+            this.SetLabelRunModeText("Đợt chạy tự động tiếp theo lúc: " + currentTerm.EVENT_TIME + " Ngày: " + currentTerm.SCH_DATE.Value.Date.ToShortDateString());
             log.Info("Thời gian bắt đầu kiểm tra tiếp theo là - " + currentTerm.EVENT_TIME);
             log.Info("AutoCheckingDomain.DivideProcess - Khởi động Timer");
+            GC.Collect();
         }
         private void ExecuteChecking(object source, ElapsedEventArgs e)
         {
             try
             {
+                if (!StaticClass.isAutoMode)
+                {
+                    return;
+                }
                 List<ProcessChecking> listProcess = new List<ProcessChecking>();
                 foreach (var item in _listProcess)
                 {
@@ -200,6 +248,7 @@ namespace DefaceWebsite.AutoTimer
                 }
                 StaticClass.isAutoRunning = true; 
                 GC.Collect();
+                this.SetLabelRunModeText("Đang chạy đợt: "+ listProcess[0]._term + " Thời gian: " +listProcess[0]._eventTime);
                 log.Info("AutoCheckingDomain.ExecuteChecking - Danh sách ProcessChecking đang chạy");
             }
             catch(Exception ex)

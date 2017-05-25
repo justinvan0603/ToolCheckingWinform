@@ -24,12 +24,39 @@ namespace DefaceWebsite.AutoTimer
         List<ProcessChecking> _listProcess;
         public DateTime _scheduleDate;
         public string _term;
+        public TimeSpan _eventTime;
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        private Label _lblRunMode;
         public ProcessChecking()
         {
             this._listProcess = new List<ProcessChecking>();
             this.prcProcess = new ProgressBar();
         }
+        public ProcessChecking(Label lblRunMode)
+        {
+            this._listProcess = new List<ProcessChecking>();
+            this.prcProcess = new ProgressBar();
+            this._lblRunMode = lblRunMode;
+        }
+        delegate void UpdateLabelRunMode(string text);
+        private void SetLabelText(string text)
+        {
+            this._lblRunMode.Text = text;
+        }
+
+        private void SetLabelRunModeText(string text)
+        {
+            if (this._lblRunMode.InvokeRequired)
+            {
+                this._lblRunMode.BeginInvoke(new UpdateLabelRunMode(SetLabelText), new object[] { text });
+
+            }
+            else
+            {
+                this._lblRunMode.Text = text;
+            }
+        }
+        
         public void SetValue(int index, List<string> domains, List<string> links, string _key)
         {
             this.totalLinks = links.Count;
@@ -246,7 +273,7 @@ namespace DefaceWebsite.AutoTimer
                         if (count >= limitLink || index >= totalLinks)
                         {
                             //TProcess pr1 = new TProcess();
-                            ProcessChecking prc = new ProcessChecking();
+                            ProcessChecking prc = new ProcessChecking(this._lblRunMode);
                             prc._scheduleDate = listexecutelink[0].SCH_DATE.Value;
                             prc._term = listexecutelink[0].SCH_TERM;
                             prc.totalProcess = totalProcess;
@@ -270,8 +297,11 @@ namespace DefaceWebsite.AutoTimer
                 processTimer.Elapsed += new ElapsedEventHandler(ExecuteChecking);
                 processTimer.Start();
                 GC.Collect();
+                this.SetLabelRunModeText("Đợt chạy tự động tiếp theo lúc: " + currentTerm.EVENT_TIME + " Ngày: " + currentTerm.SCH_DATE.Value.Date.ToShortDateString());
+                //this.SetLabelRunModeText("Đợt chạy tiếp theo lúc: " + currentTerm.EVENT_TIME);
                 log.Info("Thời gian bắt đầu kiểm tra là - " + currentTerm.EVENT_TIME);
                 log.Info("ProcessChecking.DivideProcess - Khởi động timer");
+                
             }
             catch(Exception ex)
             {
@@ -284,6 +314,10 @@ namespace DefaceWebsite.AutoTimer
         {
             try
             {
+                if (!StaticClass.isAutoMode)
+                {
+                    return;
+                }
                 List<ProcessChecking> listProcess = new List<ProcessChecking>();
                 foreach (var item in _listProcess)
                 {
@@ -295,7 +329,8 @@ namespace DefaceWebsite.AutoTimer
                     item.RunChecking();
                 }
                 StaticClass.isAutoRunning = true;
-                //GC.Collect();
+                GC.Collect();
+                this.SetLabelRunModeText("Đang chạy đợt: " + listProcess[0]._term + " Thời gian: " + listProcess[0]._eventTime);
                 log.Info("ProcessChecking.ExecuteChecking - Danh sách ProcessChecking đang chạy");
             }
             catch(Exception ex)

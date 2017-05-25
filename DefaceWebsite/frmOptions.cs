@@ -16,11 +16,16 @@ namespace DefaceWebsite
     public partial class frmOptions : Form
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        private Label _lblRunMode;
         public frmOptions()
         {
             InitializeComponent();
         }
-
+        public frmOptions(Label lblRunMode)
+        {
+            InitializeComponent();
+            this._lblRunMode = lblRunMode;
+        }
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
@@ -52,9 +57,9 @@ namespace DefaceWebsite
                             StaticClass.isAutoMode = true;
                             if (!StaticClass.isAutoRunning)
                             {
-                                AutoCreateScheduleTimer timer = new AutoCreateScheduleTimer();
+                                AutoCreateScheduleTimer timer = new AutoCreateScheduleTimer(this._lblRunMode);
                                 timer.InitSchedule();
-                                AutoCheckingDomain autoCheckDomain = new AutoCheckingDomain();
+                                AutoCheckingDomain autoCheckDomain = new AutoCheckingDomain(this._lblRunMode);
                                 autoCheckDomain.InitAutoChecking();
                                 log.Info("Đã bật chế độ lập lịch và kiểm tra tự động");
                             }

@@ -13,9 +13,33 @@ namespace DefaceWebsite.AutoTimer
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         List<ProcessChecking> _listProcess;
+        private Label _lblRunMode;
         public AutoCreateScheduleTimer()
         {
             this._listProcess = new List<ProcessChecking>();
+        }
+        public AutoCreateScheduleTimer(Label lblRunMode)
+        {
+            this._listProcess = new List<ProcessChecking>();
+            this._lblRunMode = lblRunMode;
+        }
+        delegate void UpdateLabelRunMode(string text);
+        private void SetLabelText(string text)
+        {
+            this._lblRunMode.Text = text;
+        }
+
+        private void SetLabelRunModeText(string text)
+        {
+            if (this._lblRunMode.InvokeRequired)
+            {
+                this._lblRunMode.BeginInvoke(new UpdateLabelRunMode(SetLabelText), new object[] { text });
+
+            }
+            else
+            {
+                this._lblRunMode.Text = text;
+            }
         }
         public void InitSchedule(DateTime? starttime= null)
         {
@@ -44,6 +68,7 @@ namespace DefaceWebsite.AutoTimer
             timer.AutoReset = false;
             timer.Elapsed += new ElapsedEventHandler(Schedule);
             timer.Start();
+            log.Info("Còn " + TimeSpan.FromMilliseconds(timespan.TotalMilliseconds) + " đến thời điểm lập lịch cho ngày tiếp theo");
             log.Info("Đã hẹn giờ lập lịch cho ngày kế tiếp lúc 23:40:00 - Ngày: " + targetDate.Date);
         }
         private void Schedule(object source, ElapsedEventArgs e)
@@ -78,7 +103,7 @@ namespace DefaceWebsite.AutoTimer
                     if (count >= limitLink || index >= totalLinks)
                     {
                         //TProcess pr1 = new TProcess();
-                        ProcessChecking prc = new ProcessChecking();
+                        ProcessChecking prc = new ProcessChecking(this._lblRunMode);
                         prc._scheduleDate = listexecutelink[0].SCH_DATE.Value;
                         prc._term = listexecutelink[0].SCH_TERM;
                         prc.totalProcess = totalProcess;
@@ -98,19 +123,26 @@ namespace DefaceWebsite.AutoTimer
 
             x = x.Date + currentTerm.EVENT_TIME.Value;
             var a = x.Subtract(DateTime.Now).TotalMilliseconds;
-            log.Info("Gia tri thoi gian cai dat tu chay ngay tiep theo - " + TimeSpan.FromMilliseconds(a));
+            log.Info("Đợt chạy tiếp theo cách - " + TimeSpan.FromMilliseconds(a));
             //var timeSpan = currentTerm.EVENT_TIME.Value.TotalMilliseconds - DateTime.Now.TimeOfDay.TotalMilliseconds;
             System.Timers.Timer processTimer = new System.Timers.Timer(a);
             processTimer.AutoReset = false;
             processTimer.Elapsed += new ElapsedEventHandler(ExecuteChecking);
             processTimer.Start();
+            //this.SetLabelRunModeText("Đợt chạy tiếp theo lúc: " + currentTerm.EVENT_TIME);
+            this.SetLabelRunModeText("Đợt chạy tự động tiếp theo lúc: " + currentTerm.EVENT_TIME + " Ngày: " + currentTerm.SCH_DATE.Value.Date.ToShortDateString());
             log.Info("Đợt chạy tiếp theo là - " + currentTerm.EVENT_TIME);
             log.Info("Khởi động timer chạy tự động");
+            GC.Collect();
         }
         private void ExecuteChecking(object source, ElapsedEventArgs e)
         {
             try
             {
+                if (!StaticClass.isAutoMode)
+                {
+                    return;
+                }
                 List<ProcessChecking> listProcess = new List<ProcessChecking>();
                 foreach (var item in _listProcess)
                 {
@@ -123,6 +155,7 @@ namespace DefaceWebsite.AutoTimer
                 }
                 StaticClass.isAutoRunning = true;
                 GC.Collect();
+                this.SetLabelRunModeText("Đang chạy đợt: " + listProcess[0]._term + " Thời gian: " + listProcess[0]._eventTime);
                 log.Info("AutoCreateScheduleTimer.ExecuteChecking - Danh sách ProcessChecking đang chạy");
             }
             catch(Exception ex)
@@ -140,6 +173,7 @@ namespace DefaceWebsite.AutoTimer
                     Schedules_CalResult data = client.Schedules_Cal(DateTime.Now.AddDays(1).ToString(StaticClass.formatShortDate), "thieuvq", DateTime.Now);
                     if (data.Result.Equals("0"))
                     {
+                        this.InitSchedule();
                         log.Info("Lập lịch tự động cho ngày tiếp theo thành công");
                         log.Info("Khởi tạo kiểm tra tự động");
                         Schedules_GetByDateResult[] scheduleResult = client.Schedules_GetByDate(DateTime.Now.AddDays(1));
@@ -157,6 +191,7 @@ namespace DefaceWebsite.AutoTimer
                     }
                     else
                     {
+                        this.InitSchedule();
                         log.Error("Lỗi khi lập lịch - " + data.ErrorDesc);
                         if(StaticClass.isAutoMode == true && StaticClass.isAutoRunning == false)
                         {
@@ -176,7 +211,7 @@ namespace DefaceWebsite.AutoTimer
                         }
                     }
                     //Khoi tao xong dot cu dat gio cho ngay ke tiep
-                    this.InitSchedule();
+                    
             }
             catch (Exception ex)
             {
